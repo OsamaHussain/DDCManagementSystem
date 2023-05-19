@@ -1,0 +1,14 @@
+C:\Users\Osama\source\repos\DDCManagementSystem\DDCManagementSystem\bin\Debug\DDCManagementSystem.exe
+C:\Users\Osama\source\repos\DDCManagementSystem\DDCManagementSystem\bin\Debug\FontAwesome.Sharp.dll
+C:\Users\Osama\source\repos\DDCManagementSystem\DDCManagementSystem\bin\Debug\DDCManagementSystem.exe.config
+C:\Users\Osama\source\repos\DDCManagementSystem\DDCManagementSystem\obj\Debug\DDCManagementSystem.csproj.AssemblyReference.cache
+C:\Users\Osama\source\repos\DDCManagementSystem\DDCManagementSystem\obj\Debug\DDCManagementSystem.csproj.SuggestedBindingRedirects.cache
+C:\Users\Osama\source\repos\DDCManagementSystem\DDCManagementSystem\obj\Debug\DDCManagementSystem.frmDashboard.resources
+C:\Users\Osama\source\repos\DDCManagementSystem\DDCManagementSystem\obj\Debug\DDCManagementSystem.frmLogin.resources
+C:\Users\Osama\source\repos\DDCManagementSystem\DDCManagementSystem\obj\Debug\DDCManagementSystem.Properties.Resources.resources
+C:\Users\Osama\source\repos\DDCManagementSystem\DDCManagementSystem\obj\Debug\DDCManagementSystem.csproj.GenerateResource.cache
+C:\Users\Osama\source\repos\DDCManagementSystem\DDCManagementSystem\obj\Debug\DDCManagementSystem.csproj.CoreCompileInputs.cache
+C:\Users\Osama\source\repos\DDCManagementSystem\DDCManagementSystem\obj\Debug\DDCManagementSystem.csproj.CopyComplete
+C:\Users\Osama\source\repos\DDCManagementSystem\DDCManagementSystem\obj\Debug\DDCManagementSystem.exe
+C:\Users\Osama\source\repos\DDCManagementSystem\DDCManagementSystem\obj\Debug\DDCManagementSystem.pdb
+C:\Users\Osama\source\repos\DDCManagementSystem\DDCManagementSystem\bin\Debug\DDCManagementSystem.pdb
