@@ -19,7 +19,7 @@ namespace DDCManagementSystem
         {
             InitializeComponent();
             this.Padding = new Padding(borderSize);
-            this.BackColor = Color.AliceBlue;
+            this.BackColor = Color.FromArgb(98, 102, 244);
         }
 
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
@@ -32,7 +32,63 @@ namespace DDCManagementSystem
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
 
-        private void iconButton2_Click(object sender, EventArgs e)
+        private void panelMenu_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panelDesktop_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void frmDashboard_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel4_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new frmLogin().ShowDialog();
+            this.Close();
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel4_Paint_1(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnOrders_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new frmOrders().ShowDialog();
+            this.Close();
+        }
+
+        private void btnDashboard_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new frmDashboard().ShowDialog();
+            this.Close();
+        }
+
+        private void btnVendor_Click(object sender, EventArgs e)
         {
 
         }

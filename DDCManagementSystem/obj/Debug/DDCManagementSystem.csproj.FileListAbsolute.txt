@@ -12,3 +12,5 @@ C:\Users\Osama\source\repos\DDCManagementSystem\DDCManagementSystem\obj\Debug\DD
 C:\Users\Osama\source\repos\DDCManagementSystem\DDCManagementSystem\obj\Debug\DDCManagementSystem.exe
 C:\Users\Osama\source\repos\DDCManagementSystem\DDCManagementSystem\obj\Debug\DDCManagementSystem.pdb
 C:\Users\Osama\source\repos\DDCManagementSystem\DDCManagementSystem\bin\Debug\DDCManagementSystem.pdb
+C:\Users\Osama\source\repos\DDCManagementSystem\DDCManagementSystem\obj\Debug\DDCManagementSystem.frmOrders.resources
+C:\Users\Osama\source\repos\DDCManagementSystem\DDCManagementSystem\obj\Debug\DDCManagementSystem.frmCreateOrder.resources
