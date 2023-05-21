@@ -72,6 +72,21 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.labelDashboard = new System.Windows.Forms.Label();
             this.cmbCustomerPhone = new System.Windows.Forms.ComboBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.textBox11 = new System.Windows.Forms.TextBox();
+            this.textBox12 = new System.Windows.Forms.TextBox();
+            this.textBox13 = new System.Windows.Forms.TextBox();
+            this.textBox14 = new System.Windows.Forms.TextBox();
+            this.textBox15 = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.grpServies.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.qtyTowel)).BeginInit();
@@ -122,6 +137,21 @@
             // 
             // grpServies
             // 
+            this.grpServies.Controls.Add(this.textBox15);
+            this.grpServies.Controls.Add(this.textBox14);
+            this.grpServies.Controls.Add(this.textBox13);
+            this.grpServies.Controls.Add(this.textBox12);
+            this.grpServies.Controls.Add(this.textBox11);
+            this.grpServies.Controls.Add(this.textBox10);
+            this.grpServies.Controls.Add(this.textBox9);
+            this.grpServies.Controls.Add(this.textBox8);
+            this.grpServies.Controls.Add(this.textBox7);
+            this.grpServies.Controls.Add(this.textBox6);
+            this.grpServies.Controls.Add(this.textBox5);
+            this.grpServies.Controls.Add(this.textBox4);
+            this.grpServies.Controls.Add(this.textBox3);
+            this.grpServies.Controls.Add(this.textBox2);
+            this.grpServies.Controls.Add(this.textBox1);
             this.grpServies.Controls.Add(this.qtyTowel);
             this.grpServies.Controls.Add(this.qtyOther);
             this.grpServies.Controls.Add(this.chkOther);
@@ -180,23 +210,25 @@
             // 
             this.chkOther.AutoSize = true;
             this.chkOther.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkOther.Location = new System.Drawing.Point(554, 155);
+            this.chkOther.Location = new System.Drawing.Point(505, 158);
             this.chkOther.Name = "chkOther";
             this.chkOther.Size = new System.Drawing.Size(161, 27);
             this.chkOther.TabIndex = 61;
             this.chkOther.Text = "Other Washables";
             this.chkOther.UseVisualStyleBackColor = true;
+            this.chkOther.CheckedChanged += new System.EventHandler(this.chkOther_CheckedChanged);
             // 
             // chkTowel
             // 
             this.chkTowel.AutoSize = true;
             this.chkTowel.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkTowel.Location = new System.Drawing.Point(554, 122);
+            this.chkTowel.Location = new System.Drawing.Point(505, 125);
             this.chkTowel.Name = "chkTowel";
             this.chkTowel.Size = new System.Drawing.Size(73, 27);
             this.chkTowel.TabIndex = 60;
             this.chkTowel.Text = "Towel";
             this.chkTowel.UseVisualStyleBackColor = true;
+            this.chkTowel.CheckedChanged += new System.EventHandler(this.chkTowel_CheckedChanged);
             // 
             // qtyShoes
             // 
@@ -223,45 +255,48 @@
             // 
             this.chkShoes.AutoSize = true;
             this.chkShoes.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkShoes.Location = new System.Drawing.Point(554, 90);
+            this.chkShoes.Location = new System.Drawing.Point(505, 93);
             this.chkShoes.Name = "chkShoes";
             this.chkShoes.Size = new System.Drawing.Size(75, 27);
             this.chkShoes.TabIndex = 56;
             this.chkShoes.Text = "Shoes";
             this.chkShoes.UseVisualStyleBackColor = true;
+            this.chkShoes.CheckedChanged += new System.EventHandler(this.chkShoes_CheckedChanged);
             // 
             // chkSweater
             // 
             this.chkSweater.AutoSize = true;
             this.chkSweater.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkSweater.Location = new System.Drawing.Point(554, 57);
+            this.chkSweater.Location = new System.Drawing.Point(505, 60);
             this.chkSweater.Name = "chkSweater";
             this.chkSweater.Size = new System.Drawing.Size(92, 27);
             this.chkSweater.TabIndex = 55;
             this.chkSweater.Text = "Sweater";
             this.chkSweater.UseVisualStyleBackColor = true;
+            this.chkSweater.CheckedChanged += new System.EventHandler(this.chkSweater_CheckedChanged);
             // 
             // chkHoodie
             // 
             this.chkHoodie.AutoSize = true;
             this.chkHoodie.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkHoodie.Location = new System.Drawing.Point(553, 24);
+            this.chkHoodie.Location = new System.Drawing.Point(504, 27);
             this.chkHoodie.Name = "chkHoodie";
             this.chkHoodie.Size = new System.Drawing.Size(84, 27);
             this.chkHoodie.TabIndex = 54;
             this.chkHoodie.Text = "Hoodie";
             this.chkHoodie.UseVisualStyleBackColor = true;
+            this.chkHoodie.CheckedChanged += new System.EventHandler(this.chkHoodie_CheckedChanged);
             // 
             // qtyCoat
             // 
-            this.qtyCoat.Location = new System.Drawing.Point(432, 124);
+            this.qtyCoat.Location = new System.Drawing.Point(449, 123);
             this.qtyCoat.Name = "qtyCoat";
             this.qtyCoat.Size = new System.Drawing.Size(40, 27);
             this.qtyCoat.TabIndex = 53;
             // 
             // qtySocks
             // 
-            this.qtySocks.Location = new System.Drawing.Point(432, 157);
+            this.qtySocks.Location = new System.Drawing.Point(449, 156);
             this.qtySocks.Name = "qtySocks";
             this.qtySocks.Size = new System.Drawing.Size(40, 27);
             this.qtySocks.TabIndex = 52;
@@ -290,21 +325,21 @@
             // 
             // qtyJacket
             // 
-            this.qtyJacket.Location = new System.Drawing.Point(432, 92);
+            this.qtyJacket.Location = new System.Drawing.Point(449, 91);
             this.qtyJacket.Name = "qtyJacket";
             this.qtyJacket.Size = new System.Drawing.Size(40, 27);
             this.qtyJacket.TabIndex = 49;
             // 
             // qty2Piece
             // 
-            this.qty2Piece.Location = new System.Drawing.Point(432, 59);
+            this.qty2Piece.Location = new System.Drawing.Point(449, 58);
             this.qty2Piece.Name = "qty2Piece";
             this.qty2Piece.Size = new System.Drawing.Size(40, 27);
             this.qty2Piece.TabIndex = 48;
             // 
             // qty3Piece
             // 
-            this.qty3Piece.Location = new System.Drawing.Point(432, 26);
+            this.qty3Piece.Location = new System.Drawing.Point(449, 25);
             this.qty3Piece.Name = "qty3Piece";
             this.qty3Piece.Size = new System.Drawing.Size(40, 27);
             this.qty3Piece.TabIndex = 47;
@@ -344,14 +379,14 @@
             // 
             // qtyShirt
             // 
-            this.qtyShirt.Location = new System.Drawing.Point(161, 124);
+            this.qtyShirt.Location = new System.Drawing.Point(207, 122);
             this.qtyShirt.Name = "qtyShirt";
             this.qtyShirt.Size = new System.Drawing.Size(40, 27);
             this.qtyShirt.TabIndex = 43;
             // 
             // qtyUndergarments
             // 
-            this.qtyUndergarments.Location = new System.Drawing.Point(161, 157);
+            this.qtyUndergarments.Location = new System.Drawing.Point(207, 155);
             this.qtyUndergarments.Name = "qtyUndergarments";
             this.qtyUndergarments.Size = new System.Drawing.Size(40, 27);
             this.qtyUndergarments.TabIndex = 42;
@@ -380,21 +415,21 @@
             // 
             // qtyPant
             // 
-            this.qtyPant.Location = new System.Drawing.Point(161, 92);
+            this.qtyPant.Location = new System.Drawing.Point(207, 90);
             this.qtyPant.Name = "qtyPant";
             this.qtyPant.Size = new System.Drawing.Size(40, 27);
             this.qtyPant.TabIndex = 39;
             // 
             // qtyKameez
             // 
-            this.qtyKameez.Location = new System.Drawing.Point(161, 59);
+            this.qtyKameez.Location = new System.Drawing.Point(207, 59);
             this.qtyKameez.Name = "qtyKameez";
             this.qtyKameez.Size = new System.Drawing.Size(40, 27);
             this.qtyKameez.TabIndex = 38;
             // 
             // qtyShalwar
             // 
-            this.qtyShalwar.Location = new System.Drawing.Point(161, 26);
+            this.qtyShalwar.Location = new System.Drawing.Point(207, 28);
             this.qtyShalwar.Name = "qtyShalwar";
             this.qtyShalwar.Size = new System.Drawing.Size(40, 27);
             this.qtyShalwar.TabIndex = 37;
@@ -420,6 +455,7 @@
             this.chkKameez.TabIndex = 32;
             this.chkKameez.Text = "Kameez";
             this.chkKameez.UseVisualStyleBackColor = true;
+            this.chkKameez.CheckedChanged += new System.EventHandler(this.chkKameez_CheckedChanged);
             // 
             // chkShalwar
             // 
@@ -431,7 +467,7 @@
             this.chkShalwar.TabIndex = 31;
             this.chkShalwar.Text = "Shalwar";
             this.chkShalwar.UseVisualStyleBackColor = true;
-            this.chkShalwar.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            this.chkShalwar.CheckedChanged += new System.EventHandler(this.chkShalwar_CheckedChanged);
             // 
             // groupBox1
             // 
@@ -538,13 +574,121 @@
             // cmbCustomerPhone
             // 
             this.cmbCustomerPhone.FormattingEnabled = true;
-            this.cmbCustomerPhone.Location = new System.Drawing.Point(139, 70);
+            this.cmbCustomerPhone.Location = new System.Drawing.Point(136, 67);
             this.cmbCustomerPhone.Name = "cmbCustomerPhone";
-            this.cmbCustomerPhone.Size = new System.Drawing.Size(221, 27);
+            this.cmbCustomerPhone.Size = new System.Drawing.Size(224, 27);
             this.cmbCustomerPhone.TabIndex = 29;
             this.cmbCustomerPhone.SelectedIndexChanged += new System.EventHandler(this.cmbCustomerPhone_SelectedIndexChanged);
             this.cmbCustomerPhone.SelectedValueChanged += new System.EventHandler(this.cmbCustomerPhone_SelectedValueChanged);
             this.cmbCustomerPhone.TextChanged += new System.EventHandler(this.cmbCustomerPhone_TextChanged);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(158, 28);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(43, 27);
+            this.textBox1.TabIndex = 64;
+            this.textBox1.Text = "1.5";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(158, 61);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(43, 27);
+            this.textBox2.TabIndex = 65;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(402, 24);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(43, 27);
+            this.textBox3.TabIndex = 66;
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(158, 156);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(43, 27);
+            this.textBox4.TabIndex = 67;
+            // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(158, 125);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(43, 27);
+            this.textBox5.TabIndex = 68;
+            // 
+            // textBox6
+            // 
+            this.textBox6.Location = new System.Drawing.Point(158, 94);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(43, 27);
+            this.textBox6.TabIndex = 69;
+            // 
+            // textBox7
+            // 
+            this.textBox7.Location = new System.Drawing.Point(403, 58);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(43, 27);
+            this.textBox7.TabIndex = 70;
+            // 
+            // textBox8
+            // 
+            this.textBox8.Location = new System.Drawing.Point(403, 91);
+            this.textBox8.Name = "textBox8";
+            this.textBox8.Size = new System.Drawing.Size(43, 27);
+            this.textBox8.TabIndex = 71;
+            // 
+            // textBox9
+            // 
+            this.textBox9.Location = new System.Drawing.Point(403, 125);
+            this.textBox9.Name = "textBox9";
+            this.textBox9.Size = new System.Drawing.Size(43, 27);
+            this.textBox9.TabIndex = 72;
+            // 
+            // textBox10
+            // 
+            this.textBox10.Location = new System.Drawing.Point(403, 156);
+            this.textBox10.Name = "textBox10";
+            this.textBox10.Size = new System.Drawing.Size(43, 27);
+            this.textBox10.TabIndex = 73;
+            // 
+            // textBox11
+            // 
+            this.textBox11.Location = new System.Drawing.Point(670, 29);
+            this.textBox11.Name = "textBox11";
+            this.textBox11.Size = new System.Drawing.Size(43, 27);
+            this.textBox11.TabIndex = 74;
+            // 
+            // textBox12
+            // 
+            this.textBox12.Location = new System.Drawing.Point(670, 62);
+            this.textBox12.Name = "textBox12";
+            this.textBox12.Size = new System.Drawing.Size(43, 27);
+            this.textBox12.TabIndex = 75;
+            // 
+            // textBox13
+            // 
+            this.textBox13.Location = new System.Drawing.Point(672, 158);
+            this.textBox13.Name = "textBox13";
+            this.textBox13.Size = new System.Drawing.Size(43, 27);
+            this.textBox13.TabIndex = 76;
+            // 
+            // textBox14
+            // 
+            this.textBox14.Location = new System.Drawing.Point(670, 126);
+            this.textBox14.Name = "textBox14";
+            this.textBox14.Size = new System.Drawing.Size(43, 27);
+            this.textBox14.TabIndex = 77;
+            // 
+            // textBox15
+            // 
+            this.textBox15.Location = new System.Drawing.Point(670, 95);
+            this.textBox15.Name = "textBox15";
+            this.textBox15.Size = new System.Drawing.Size(43, 27);
+            this.textBox15.TabIndex = 78;
+            this.textBox15.TextChanged += new System.EventHandler(this.textBox15_TextChanged);
             // 
             // frmCreateOrder
             // 
@@ -629,5 +773,20 @@
         private System.Windows.Forms.CheckBox chk3Piece;
         private System.Windows.Forms.Button btnPlaceOrder;
         private System.Windows.Forms.ComboBox cmbCustomerPhone;
+        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox11;
+        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox textBox15;
+        private System.Windows.Forms.TextBox textBox14;
+        private System.Windows.Forms.TextBox textBox13;
+        private System.Windows.Forms.TextBox textBox12;
     }
 }

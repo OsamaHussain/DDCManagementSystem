@@ -14,15 +14,15 @@ namespace DDCManagementSystem
 {
     public partial class frmDashboard : Form
     {
-        private int borderSize = 2;
+        //private int borderSize = 2;
         public frmDashboard()
         {
             InitializeComponent();
-            this.Padding = new Padding(borderSize);
-            this.BackColor = Color.FromArgb(98, 102, 244);
+            //this.Padding = new Padding(borderSize);
+            //this.BackColor = Color.FromArgb(98, 102, 244);
         }
 
-        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        /*[DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
@@ -31,6 +31,7 @@ namespace DDCManagementSystem
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
+        */
 
         private void panelMenu_Paint(object sender, PaintEventArgs e)
         {

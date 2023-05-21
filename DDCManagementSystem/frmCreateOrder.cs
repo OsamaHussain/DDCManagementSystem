@@ -70,9 +70,11 @@ namespace DDCManagementSystem
 
             StringBuilder sbMessage = new StringBuilder();
 
+            MessageBox.Show(chkShalwar.Text);
+
             if (chkShalwar.Checked)
             {
-                sbMessage.Append($"{chkShalwar.Text} - Price: ${3} - Qty: {qtyShalwar.Text} \t Sub-Total: ${3 * int.Parse(qtyShalwar.Text)}\n");
+                sbMessage.Append($"{chkShalwar.Text} \t Price: ${3} \t Qty: {qtyShalwar.Text} \t Sub-Total: ${3 * int.Parse(qtyShalwar.Text)}\n");
                 SqlCommand cmd2 = new SqlCommand($"insert into tblOrders values('{CustmerId}','3','{qtyShalwar.Value}','{OrderNumber}','{DateTime.Now.ToString("dd/MM/yyyy")}')",connection);
                 cmd2.ExecuteNonQuery();
             }
@@ -83,8 +85,151 @@ namespace DDCManagementSystem
 
             if (chkKameez.Checked)
             {
-                sbMessage.Append($"{chkKameez.Text} - Price: ${3} - Qty: {qtyKameez.Text} \t Sub-Total: ${3 * int.Parse(qtyKameez.Text)} \n");
+                sbMessage.Append($"{chkKameez.Text} \t Price: ${3} \t Qty: {qtyKameez.Text} \t Sub-Total: ${3 * int.Parse(qtyKameez.Text)} \n");
                 SqlCommand cmd1 = new SqlCommand($"insert into tblOrders values('{CustmerId}','2','{qtyKameez.Value}','{OrderNumber}','{DateTime.Now.ToString("dd/MM/yyyy")}')", connection);
+                cmd1.ExecuteNonQuery();
+            }
+
+            connection.Close();
+
+            connection.Open();
+
+            if (chkPant.Checked)
+            {
+                sbMessage.Append($"{chkPant.Text} \t Price: ${3} \t Qty: {qtyPant.Text} \t Sub-Total: ${3 * int.Parse(qtyPant.Text)} \n");
+                SqlCommand cmd1 = new SqlCommand($"insert into tblOrders values('{CustmerId}','2','{qtyPant.Value}','{OrderNumber}','{DateTime.Now.ToString("dd/MM/yyyy")}')", connection);
+                cmd1.ExecuteNonQuery();
+            }
+
+            connection.Close();
+
+            connection.Open();
+
+            if (chkShirt.Checked)
+            {
+                sbMessage.Append($"{chkShirt.Text} \t Price: ${3} \t Qty: {qtyShirt.Text} \t Sub-Total: ${3 * int.Parse(qtyShirt.Text)} \n");
+                SqlCommand cmd1 = new SqlCommand($"insert into tblOrders values('{CustmerId}','2','{qtyShirt.Value}','{OrderNumber}','{DateTime.Now.ToString("dd/MM/yyyy")}')", connection);
+                cmd1.ExecuteNonQuery();
+            }
+
+            connection.Close();
+
+            connection.Open();
+
+            if (chkUndergarments.Checked)
+            {
+                sbMessage.Append($"{chkUndergarments.Text} \t Price: ${3} \t Qty: {qtyUndergarments.Text} \t Sub-Total: ${3 * int.Parse(qtyUndergarments.Text)} \n");
+                SqlCommand cmd1 = new SqlCommand($"insert into tblOrders values('{CustmerId}','2','{qtyUndergarments.Value}','{OrderNumber}','{DateTime.Now.ToString("dd/MM/yyyy")}')", connection);
+                cmd1.ExecuteNonQuery();
+            }
+
+            connection.Close();
+
+            connection.Open();
+
+            if (chk3Piece.Checked)
+            {
+                sbMessage.Append($"{chk3Piece.Text} \t Price: ${3} \t Qty: {qty3Piece.Text} \t Sub-Total: ${3 * int.Parse(qty3Piece.Text)} \n");
+                SqlCommand cmd1 = new SqlCommand($"insert into tblOrders values('{CustmerId}','2','{qty3Piece.Value}','{OrderNumber}','{DateTime.Now.ToString("dd/MM/yyyy")}')", connection);
+                cmd1.ExecuteNonQuery();
+            }
+
+            connection.Close();
+
+            connection.Open();
+
+            if (chk2Piece.Checked)
+            {
+                sbMessage.Append($"{chk2Piece.Text} \t Price: ${3} \t Qty: {qty2Piece.Text} \t Sub-Total: ${3 * int.Parse(qty2Piece.Text)} \n");
+                SqlCommand cmd1 = new SqlCommand($"insert into tblOrders values('{CustmerId}','2','{qty2Piece.Value}','{OrderNumber}','{DateTime.Now.ToString("dd/MM/yyyy")}')", connection);
+                cmd1.ExecuteNonQuery();
+            }
+
+            connection.Close();
+
+            connection.Open();
+
+            if (chkJacket.Checked)
+            {
+                sbMessage.Append($"{chkJacket.Text} \t Price: ${3} \t Qty: {qtyJacket.Text} \t Sub-Total: ${3 * int.Parse(qtyJacket.Text)} \n");
+                SqlCommand cmd1 = new SqlCommand($"insert into tblOrders values('{CustmerId}','2','{qtyJacket.Value}','{OrderNumber}','{DateTime.Now.ToString("dd/MM/yyyy")}')", connection);
+                cmd1.ExecuteNonQuery();
+            }
+
+            connection.Close();
+
+            connection.Open();
+
+            if (chkCoat.Checked)
+            {
+                sbMessage.Append($"{chkJacket.Text} \t Price: ${3} \t Qty: {qtyJacket.Text} \t Sub-Total: ${3 * int.Parse(qtyJacket.Text)} \n");
+                SqlCommand cmd1 = new SqlCommand($"insert into tblOrders values('{CustmerId}','2','{qtyJacket.Value}','{OrderNumber}','{DateTime.Now.ToString("dd/MM/yyyy")}')", connection);
+                cmd1.ExecuteNonQuery();
+            }
+
+            connection.Close();
+
+            connection.Open();
+
+            if (chkSocks.Checked)
+            {
+                sbMessage.Append($"{chkSocks.Text} \t Price: ${3} \t Qty: {qtySocks.Text} \t Sub-Total: ${3 * int.Parse(qtySocks.Text)} \n");
+                SqlCommand cmd1 = new SqlCommand($"insert into tblOrders values('{CustmerId}','2','{qtySocks.Value}','{OrderNumber}','{DateTime.Now.ToString("dd/MM/yyyy")}')", connection);
+                cmd1.ExecuteNonQuery();
+            }
+
+            connection.Close();
+
+            connection.Open();
+
+            if (chkHoodie.Checked)
+            {
+                sbMessage.Append($"{chkHoodie.Text} \t Price: ${3} \t Qty: {qtyHoodie.Text} \t Sub-Total: ${3 * int.Parse(qtyHoodie.Text)} \n");
+                SqlCommand cmd1 = new SqlCommand($"insert into tblOrders values('{CustmerId}','2','{qtyHoodie.Value}','{OrderNumber}','{DateTime.Now.ToString("dd/MM/yyyy")}')", connection);
+                cmd1.ExecuteNonQuery();
+            }
+
+            connection.Close();
+
+            connection.Open();
+
+            if (chkSweater.Checked)
+            {
+                sbMessage.Append($"{chkSweater.Text} \t Price: ${3} \t Qty: {qtySweater.Text} \t Sub-Total: ${3 * int.Parse(qtySweater.Text)} \n");
+                SqlCommand cmd1 = new SqlCommand($"insert into tblOrders values('{CustmerId}','2','{qtySweater.Value}','{OrderNumber}','{DateTime.Now.ToString("dd/MM/yyyy")}')", connection);
+                cmd1.ExecuteNonQuery();
+            }
+
+            connection.Close();
+
+            connection.Open();
+
+            if (chkShoes.Checked)
+            {
+                sbMessage.Append($"{chkShoes.Text} \t Price: ${3} \t Qty: {qtyShoes.Text} \t Sub-Total: ${3 * int.Parse(qtyShoes.Text)} \n");
+                SqlCommand cmd1 = new SqlCommand($"insert into tblOrders values('{CustmerId}','2','{qtyShoes.Value}','{OrderNumber}','{DateTime.Now.ToString("dd/MM/yyyy")}')", connection);
+                cmd1.ExecuteNonQuery();
+            }
+
+            connection.Close();
+
+            connection.Open();
+
+            if (chkTowel.Checked)
+            {
+                sbMessage.Append($"{chkTowel.Text} \t Price: ${3} \t Qty: {qtyTowel.Text} \t Sub-Total: ${3 * int.Parse(qtyTowel.Text)} \n");
+                SqlCommand cmd1 = new SqlCommand($"insert into tblOrders values('{CustmerId}','2','{qtyTowel.Value}','{OrderNumber}','{DateTime.Now.ToString("dd/MM/yyyy")}')", connection);
+                cmd1.ExecuteNonQuery();
+            }
+
+            connection.Close();
+
+            connection.Open();
+
+            if (chkOther.Checked)
+            {
+                sbMessage.Append($"{chkOther.Text} \t Price: ${3} \t Qty: {qtyOther.Text} \t Sub-Total: ${3 * int.Parse(qtyOther.Text)} \n");
+                SqlCommand cmd1 = new SqlCommand($"insert into tblOrders values('{CustmerId}','2','{qtyOther.Value}','{OrderNumber}','{DateTime.Now.ToString("dd/MM/yyyy")}')", connection);
                 cmd1.ExecuteNonQuery();
             }
 
@@ -171,6 +316,59 @@ namespace DDCManagementSystem
             }
 
             connection.Close();
+
+        }
+
+        private void chkShalwar_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkShalwar.Checked)
+            {
+                qtyShalwar.Value = 1;
+            }else
+            {
+                qtyShalwar.Value = 0;
+            }
+        }
+
+        private void chkKameez_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkKameez.Checked)
+            {
+                qtyKameez.Value = 1;
+            }
+            else
+            {
+                qtyKameez.Value = 0;
+            }
+        }
+
+        private void chkOther_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void chkTowel_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void chkShoes_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void chkSweater_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void chkHoodie_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox15_TextChanged(object sender, EventArgs e)
+        {
 
         }
     }
