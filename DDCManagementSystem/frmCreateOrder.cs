@@ -41,210 +41,94 @@ namespace DDCManagementSystem
 
         }
 
-        private void btnPlaceOrder_Click(object sender, EventArgs e)
+        private void Insert(string query)
         {
-            SqlConnection connection = new SqlConnection("Data Source=DESKTOP-2GGTQSU\\SQLEXPRESS01;Initial Catalog=DDCManagementSystem;Integrated Security=True");
-            connection.Open();
+            SqlConnection con = new SqlConnection(Connection.CONNECTION_STRING);
+            con.Open();
+            SqlCommand cmd = new SqlCommand(query, con);
+            cmd.ExecuteNonQuery();
+            con.Close();
+        }
 
-            SqlCommand cmd = new SqlCommand("spAddCustomerData", connection);
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.Add("@name", txtCustomerName.Text);
-            cmd.Parameters.Add("@phone", cmbCustomerPhone.Text);
-            cmd.Parameters.Add("@email", txtCustomerEmail.Text);
-            cmd.Parameters.Add("@address", txtCustomerAddress.Text);
-            SqlDataReader rdr = cmd.ExecuteReader();
-
-
+        private StringBuilder SetData(bool bUpdate)
+        {
             int CustmerId = 0;
+            StringBuilder sbMessage = new StringBuilder();
 
-            while (rdr.Read())
+            if (bUpdate)
             {
-                CustmerId = int.Parse(rdr["CustomerId"].ToString());
-            }
+                SqlConnection connection = new SqlConnection(Connection.CONNECTION_STRING);
+                connection.Open();
 
-            connection.Close();
-            connection.Open();
+                SqlCommand cmd = new SqlCommand("spAddCustomerData", connection);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@name", txtCustomerName.Text);
+                cmd.Parameters.AddWithValue("@phone", cmbCustomerPhone.Text);
+                cmd.Parameters.AddWithValue("@email", txtCustomerEmail.Text);
+                cmd.Parameters.AddWithValue("@address", txtCustomerAddress.Text);
+                SqlDataReader rdr = cmd.ExecuteReader();
+
+                while (rdr.Read())
+                {
+                    CustmerId = int.Parse(rdr["CustomerId"].ToString());
+                }
+
+                connection.Close();
+            }
 
             string OrderNumber = DateTime.Now.ToLocalTime().Ticks.ToString();
 
 
-            StringBuilder sbMessage = new StringBuilder();
-
-            MessageBox.Show(chkShalwar.Text);
-
             if (chkShalwar.Checked)
             {
-                sbMessage.Append($"{chkShalwar.Text} \t Price: ${3} \t Qty: {qtyShalwar.Text} \t Sub-Total: ${3 * int.Parse(qtyShalwar.Text)}\n");
-                SqlCommand cmd2 = new SqlCommand($"insert into tblOrders values('{CustmerId}','3','{qtyShalwar.Value}','{OrderNumber}','{DateTime.Now.ToString("dd/MM/yyyy")}')",connection);
-                cmd2.ExecuteNonQuery();
+                sbMessage.Append($"{chkShalwar.Text} \t Price: ${Connection.dictServicePrice["Shalwar"]} \t Qty: {qtyShalwar.Text} \t Sub-Total: ${3 * int.Parse(qtyShalwar.Text)}\n");
+                if (bUpdate)
+                {
+                    Insert($"insert into tblOrders values('{OrderNumber}','{CustmerId}',{Connection.dictServicePrice["Shalwar"]},'{qtyShalwar.Value}',{1},'{DateTime.Now.ToString("dd/MM/yyyy")}')");
+                }
             }
-
-            connection.Close();
-
-            connection.Open();
 
             if (chkKameez.Checked)
             {
-                sbMessage.Append($"{chkKameez.Text} \t Price: ${3} \t Qty: {qtyKameez.Text} \t Sub-Total: ${3 * int.Parse(qtyKameez.Text)} \n");
-                SqlCommand cmd1 = new SqlCommand($"insert into tblOrders values('{CustmerId}','2','{qtyKameez.Value}','{OrderNumber}','{DateTime.Now.ToString("dd/MM/yyyy")}')", connection);
-                cmd1.ExecuteNonQuery();
+                sbMessage.Append($"{chkKameez.Text} \t Price: ${Connection.dictServicePrice["Kameez"]} \t Qty: {qtyKameez.Text} \t Sub-Total: ${3 * int.Parse(qtyKameez.Text)}\n");
+                if (bUpdate)
+                {
+                    Insert($"insert into tblOrders values('{OrderNumber}','{CustmerId}',{Connection.dictServicePrice["Kameez"]},'{qtyKameez.Value}',{2},'{DateTime.Now.ToString("dd/MM/yyyy")}')");
+                }
             }
-
-            connection.Close();
-
-            connection.Open();
 
             if (chkPant.Checked)
             {
-                sbMessage.Append($"{chkPant.Text} \t Price: ${3} \t Qty: {qtyPant.Text} \t Sub-Total: ${3 * int.Parse(qtyPant.Text)} \n");
-                SqlCommand cmd1 = new SqlCommand($"insert into tblOrders values('{CustmerId}','2','{qtyPant.Value}','{OrderNumber}','{DateTime.Now.ToString("dd/MM/yyyy")}')", connection);
-                cmd1.ExecuteNonQuery();
+                sbMessage.Append($"{chkPant.Text} \t Price: ${Connection.dictServicePrice["Pant"]} \t Qty: {qtyPant.Text} \t Sub-Total: ${3 * int.Parse(qtyPant.Text)}\n");
+                if (bUpdate)
+                {
+                    Insert($"insert into tblOrders values('{OrderNumber}','{CustmerId}',{Connection.dictServicePrice["Pant"]},'{qtyPant.Value}',{3},'{DateTime.Now.ToString("dd/MM/yyyy")}')");
+                }
             }
 
-            connection.Close();
+            return sbMessage;
+        }
 
-            connection.Open();
+        private void btnPlaceOrder_Click(object sender, EventArgs e)
+        {
 
-            if (chkShirt.Checked)
+            StringBuilder sbMessage = SetData(false);
+
+            DialogResult dialogResult = MessageBox.Show(
+                    $"Order Summary:\n\n" +
+                    $"Customer Name: {txtCustomerName.Text}\n" +
+                    $"Customer Phone: {cmbCustomerPhone.Text}\n" +
+                    $"\n********************** [ Details ] **********************\n" +
+                    sbMessage.ToString(),
+                    "Order Summary",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question
+                    );
+
+            if(dialogResult == DialogResult.Yes)
             {
-                sbMessage.Append($"{chkShirt.Text} \t Price: ${3} \t Qty: {qtyShirt.Text} \t Sub-Total: ${3 * int.Parse(qtyShirt.Text)} \n");
-                SqlCommand cmd1 = new SqlCommand($"insert into tblOrders values('{CustmerId}','2','{qtyShirt.Value}','{OrderNumber}','{DateTime.Now.ToString("dd/MM/yyyy")}')", connection);
-                cmd1.ExecuteNonQuery();
+                SetData(true);
             }
-
-            connection.Close();
-
-            connection.Open();
-
-            if (chkUndergarments.Checked)
-            {
-                sbMessage.Append($"{chkUndergarments.Text} \t Price: ${3} \t Qty: {qtyUndergarments.Text} \t Sub-Total: ${3 * int.Parse(qtyUndergarments.Text)} \n");
-                SqlCommand cmd1 = new SqlCommand($"insert into tblOrders values('{CustmerId}','2','{qtyUndergarments.Value}','{OrderNumber}','{DateTime.Now.ToString("dd/MM/yyyy")}')", connection);
-                cmd1.ExecuteNonQuery();
-            }
-
-            connection.Close();
-
-            connection.Open();
-
-            if (chk3Piece.Checked)
-            {
-                sbMessage.Append($"{chk3Piece.Text} \t Price: ${3} \t Qty: {qty3Piece.Text} \t Sub-Total: ${3 * int.Parse(qty3Piece.Text)} \n");
-                SqlCommand cmd1 = new SqlCommand($"insert into tblOrders values('{CustmerId}','2','{qty3Piece.Value}','{OrderNumber}','{DateTime.Now.ToString("dd/MM/yyyy")}')", connection);
-                cmd1.ExecuteNonQuery();
-            }
-
-            connection.Close();
-
-            connection.Open();
-
-            if (chk2Piece.Checked)
-            {
-                sbMessage.Append($"{chk2Piece.Text} \t Price: ${3} \t Qty: {qty2Piece.Text} \t Sub-Total: ${3 * int.Parse(qty2Piece.Text)} \n");
-                SqlCommand cmd1 = new SqlCommand($"insert into tblOrders values('{CustmerId}','2','{qty2Piece.Value}','{OrderNumber}','{DateTime.Now.ToString("dd/MM/yyyy")}')", connection);
-                cmd1.ExecuteNonQuery();
-            }
-
-            connection.Close();
-
-            connection.Open();
-
-            if (chkJacket.Checked)
-            {
-                sbMessage.Append($"{chkJacket.Text} \t Price: ${3} \t Qty: {qtyJacket.Text} \t Sub-Total: ${3 * int.Parse(qtyJacket.Text)} \n");
-                SqlCommand cmd1 = new SqlCommand($"insert into tblOrders values('{CustmerId}','2','{qtyJacket.Value}','{OrderNumber}','{DateTime.Now.ToString("dd/MM/yyyy")}')", connection);
-                cmd1.ExecuteNonQuery();
-            }
-
-            connection.Close();
-
-            connection.Open();
-
-            if (chkCoat.Checked)
-            {
-                sbMessage.Append($"{chkJacket.Text} \t Price: ${3} \t Qty: {qtyJacket.Text} \t Sub-Total: ${3 * int.Parse(qtyJacket.Text)} \n");
-                SqlCommand cmd1 = new SqlCommand($"insert into tblOrders values('{CustmerId}','2','{qtyJacket.Value}','{OrderNumber}','{DateTime.Now.ToString("dd/MM/yyyy")}')", connection);
-                cmd1.ExecuteNonQuery();
-            }
-
-            connection.Close();
-
-            connection.Open();
-
-            if (chkSocks.Checked)
-            {
-                sbMessage.Append($"{chkSocks.Text} \t Price: ${3} \t Qty: {qtySocks.Text} \t Sub-Total: ${3 * int.Parse(qtySocks.Text)} \n");
-                SqlCommand cmd1 = new SqlCommand($"insert into tblOrders values('{CustmerId}','2','{qtySocks.Value}','{OrderNumber}','{DateTime.Now.ToString("dd/MM/yyyy")}')", connection);
-                cmd1.ExecuteNonQuery();
-            }
-
-            connection.Close();
-
-            connection.Open();
-
-            if (chkHoodie.Checked)
-            {
-                sbMessage.Append($"{chkHoodie.Text} \t Price: ${3} \t Qty: {qtyHoodie.Text} \t Sub-Total: ${3 * int.Parse(qtyHoodie.Text)} \n");
-                SqlCommand cmd1 = new SqlCommand($"insert into tblOrders values('{CustmerId}','2','{qtyHoodie.Value}','{OrderNumber}','{DateTime.Now.ToString("dd/MM/yyyy")}')", connection);
-                cmd1.ExecuteNonQuery();
-            }
-
-            connection.Close();
-
-            connection.Open();
-
-            if (chkSweater.Checked)
-            {
-                sbMessage.Append($"{chkSweater.Text} \t Price: ${3} \t Qty: {qtySweater.Text} \t Sub-Total: ${3 * int.Parse(qtySweater.Text)} \n");
-                SqlCommand cmd1 = new SqlCommand($"insert into tblOrders values('{CustmerId}','2','{qtySweater.Value}','{OrderNumber}','{DateTime.Now.ToString("dd/MM/yyyy")}')", connection);
-                cmd1.ExecuteNonQuery();
-            }
-
-            connection.Close();
-
-            connection.Open();
-
-            if (chkShoes.Checked)
-            {
-                sbMessage.Append($"{chkShoes.Text} \t Price: ${3} \t Qty: {qtyShoes.Text} \t Sub-Total: ${3 * int.Parse(qtyShoes.Text)} \n");
-                SqlCommand cmd1 = new SqlCommand($"insert into tblOrders values('{CustmerId}','2','{qtyShoes.Value}','{OrderNumber}','{DateTime.Now.ToString("dd/MM/yyyy")}')", connection);
-                cmd1.ExecuteNonQuery();
-            }
-
-            connection.Close();
-
-            connection.Open();
-
-            if (chkTowel.Checked)
-            {
-                sbMessage.Append($"{chkTowel.Text} \t Price: ${3} \t Qty: {qtyTowel.Text} \t Sub-Total: ${3 * int.Parse(qtyTowel.Text)} \n");
-                SqlCommand cmd1 = new SqlCommand($"insert into tblOrders values('{CustmerId}','2','{qtyTowel.Value}','{OrderNumber}','{DateTime.Now.ToString("dd/MM/yyyy")}')", connection);
-                cmd1.ExecuteNonQuery();
-            }
-
-            connection.Close();
-
-            connection.Open();
-
-            if (chkOther.Checked)
-            {
-                sbMessage.Append($"{chkOther.Text} \t Price: ${3} \t Qty: {qtyOther.Text} \t Sub-Total: ${3 * int.Parse(qtyOther.Text)} \n");
-                SqlCommand cmd1 = new SqlCommand($"insert into tblOrders values('{CustmerId}','2','{qtyOther.Value}','{OrderNumber}','{DateTime.Now.ToString("dd/MM/yyyy")}')", connection);
-                cmd1.ExecuteNonQuery();
-            }
-
-            connection.Close();
-
-            MessageBox.Show(
-                $"Order Summary:\n\n" +
-                $"Customer Name: {txtCustomerName.Text}\n" +
-                $"Customer Phone: {cmbCustomerPhone.Text}\n" +
-                $"\n********************** [ Details ] **********************\n" +
-                sbMessage.ToString(),
-                "Order Summary",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.None
-            );
         }
 
         private void cmbCustomerPhone_TextChanged(object sender, EventArgs e)
@@ -252,7 +136,7 @@ namespace DDCManagementSystem
             string userTypedData = cmbCustomerPhone.Text;
 
 
-            SqlConnection connection = new SqlConnection("Data Source=DESKTOP-2GGTQSU\\SQLEXPRESS01;Initial Catalog=DDCManagementSystem;Integrated Security=True");
+            SqlConnection connection = new SqlConnection(Connection.CONNECTION_STRING);
             connection.Open();
 
             SqlCommand cmd = new SqlCommand($"SELECT top 10 * FROM tblCustomer WHERE phone like '{userTypedData}%'", connection);
@@ -286,7 +170,7 @@ namespace DDCManagementSystem
             string userTypedData = cmbCustomerPhone.Text;
 
 
-            SqlConnection connection = new SqlConnection("Data Source=DESKTOP-2GGTQSU\\SQLEXPRESS01;Initial Catalog=DDCManagementSystem;Integrated Security=True");
+            SqlConnection connection = new SqlConnection(Connection.CONNECTION_STRING);
             connection.Open();
 
             SqlCommand cmd = new SqlCommand($"SELECT * FROM tblCustomer WHERE phone = '{userTypedData}'", connection);
@@ -303,14 +187,14 @@ namespace DDCManagementSystem
 
                 for (int i = 0; i < cmbCustomerPhone.Items.Count; i++)
                 {
-                    if(cmbCustomerPhone.Items[i].ToString() == phone)
+                    if (cmbCustomerPhone.Items[i].ToString() == phone)
                     {
                         index = i;
                     }
                 }
             }
 
-            if(index != -1)
+            if (index != -1)
             {
                 //cmbCustomerPhone.Items[index].se = cmbCustomerPhone.Items[index].ToString();
             }
@@ -321,53 +205,286 @@ namespace DDCManagementSystem
 
         private void chkShalwar_CheckedChanged(object sender, EventArgs e)
         {
-            if (chkShalwar.Checked)
-            {
-                qtyShalwar.Value = 1;
-            }else
-            {
-                qtyShalwar.Value = 0;
-            }
+            SetDefault(chkShalwar, txtShalwarPrice, qtyShalwar, "Shalwar");
         }
 
         private void chkKameez_CheckedChanged(object sender, EventArgs e)
         {
-            if (chkKameez.Checked)
-            {
-                qtyKameez.Value = 1;
-            }
-            else
-            {
-                qtyKameez.Value = 0;
-            }
+            SetDefault(chkKameez, txtKameezPrice, qtyKameez, "Kameez");
         }
 
         private void chkOther_CheckedChanged(object sender, EventArgs e)
         {
-
+            SetDefault(chkOther, txtOtherWashablesPrice, qtyOther, "Other Washables");
         }
 
         private void chkTowel_CheckedChanged(object sender, EventArgs e)
         {
-
+            SetDefault(chkTowel, txtTowelPrice, qtyTowel, "Towel");
         }
 
         private void chkShoes_CheckedChanged(object sender, EventArgs e)
         {
-
+            SetDefault(chkShoes, txtShoesPrice, qtyShoes, "Shoes");
         }
 
         private void chkSweater_CheckedChanged(object sender, EventArgs e)
         {
-
+            SetDefault(chkSweater, txtSweaterPrice, qtySweater, "Sweater");
         }
 
         private void chkHoodie_CheckedChanged(object sender, EventArgs e)
         {
-
+            SetDefault(chkHoodie, txtHoodiePrice, qtyHoodie, "Hoodie");
         }
 
         private void textBox15_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void frmCreateOrder_Load(object sender, EventArgs e)
+        {
+            SqlConnection connection = new SqlConnection(Connection.CONNECTION_STRING);
+            connection.Open();
+
+            SqlCommand cmd = new SqlCommand("select * from [Services]", connection);
+            SqlDataReader rdr = cmd.ExecuteReader();
+
+            Connection.dictServicePrice = new Dictionary<string, string>();
+
+            while (rdr.Read())
+            {
+                if (rdr["service_name"].ToString() == "Shalwar")
+                {
+                    txtShalwarPrice.Text = rdr["service_price"].ToString();
+                    Connection.dictServicePrice.Add("Shalwar", rdr["service_price"].ToString());
+                }
+                else if (rdr["service_name"].ToString() == "Kameez")
+                {
+                    txtKameezPrice.Text = rdr["service_price"].ToString();
+                    Connection.dictServicePrice.Add("Kameez", rdr["service_price"].ToString());
+                }
+                else if (rdr["service_name"].ToString() == "Pant")
+                {
+                    txtPantPrice.Text = rdr["service_price"].ToString();
+                    Connection.dictServicePrice.Add("Pant", rdr["service_price"].ToString());
+                }
+                else if (rdr["service_name"].ToString() == "Shirt")
+                {
+                    txtShirtPrice.Text = rdr["service_price"].ToString();
+                    Connection.dictServicePrice.Add("Shirt", rdr["service_price"].ToString());
+                }
+                else if (rdr["service_name"].ToString() == "Undergarments")
+                {
+                    txtUndergarmentPrice.Text = rdr["service_price"].ToString();
+                    Connection.dictServicePrice.Add("Undergarments", rdr["service_price"].ToString());
+                }
+                else if (rdr["service_name"].ToString() == "3 Piece Suit")
+                {
+                    txt3PieceSuitPrice.Text = rdr["service_price"].ToString();
+                    Connection.dictServicePrice.Add("3 Piece Suit", rdr["service_price"].ToString());
+                }
+                else if (rdr["service_name"].ToString() == "2 Piece Suit")
+                {
+                    txt2PieceSuitePrice.Text = rdr["service_price"].ToString();
+                    Connection.dictServicePrice.Add("2 Piece Suit", rdr["service_price"].ToString());
+                }
+                else if (rdr["service_name"].ToString() == "Jacket")
+                {
+                    txtJacketPrice.Text = rdr["service_price"].ToString();
+                    Connection.dictServicePrice.Add("Jacket", rdr["service_price"].ToString());
+                }
+                else if (rdr["service_name"].ToString() == "Coat")
+                {
+                    txtCoatPrice.Text = rdr["service_price"].ToString();
+                    Connection.dictServicePrice.Add("Coat", rdr["service_price"].ToString());
+                }
+                else if (rdr["service_name"].ToString() == "Socks")
+                {
+                    txtSocksPrice.Text = rdr["service_price"].ToString();
+                    Connection.dictServicePrice.Add("Socks", rdr["service_price"].ToString());
+                }
+                else if (rdr["service_name"].ToString() == "Hoodie")
+                {
+                    txtHoodiePrice.Text = rdr["service_price"].ToString();
+                    Connection.dictServicePrice.Add("Hoodie", rdr["service_price"].ToString());
+                }
+                else if (rdr["service_name"].ToString() == "Sweater")
+                {
+                    txtSweaterPrice.Text = rdr["service_price"].ToString();
+                    Connection.dictServicePrice.Add("Sweater", rdr["service_price"].ToString());
+                }
+                else if (rdr["service_name"].ToString() == "Shoes")
+                {
+                    txtShoesPrice.Text = rdr["service_price"].ToString();
+                    Connection.dictServicePrice.Add("Shoes", rdr["service_price"].ToString());
+                }
+                else if (rdr["service_name"].ToString() == "Towel")
+                {
+                    txtTowelPrice.Text = rdr["service_price"].ToString();
+                    Connection.dictServicePrice.Add("Towel", rdr["service_price"].ToString());
+                }
+                else if (rdr["service_name"].ToString() == "Other Washables")
+                {
+                    txtOtherWashablesPrice.Text = rdr["service_price"].ToString();
+                    Connection.dictServicePrice.Add("Other Washables", rdr["service_price"].ToString());
+                }
+            }
+
+            connection.Close();
+        }
+
+        private void qtyShalwar_ValueChanged(object sender, EventArgs e)
+        {
+            SetPrice(txtShalwarPrice, qtyShalwar, "Shalwar");
+        }
+
+        private void SetPrice(TextBox txtPrice, NumericUpDown numericUpDown, string serviceName, bool bSetNumericUpDown = false)
+        {
+            txtPrice.Text = (numericUpDown.Value * decimal.Parse(Connection.dictServicePrice[serviceName])).ToString();
+            if (bSetNumericUpDown)
+            {
+                numericUpDown.Value = 1;
+            }
+        }
+
+        private void SetDefault(CheckBox chkBox, TextBox txtBox, NumericUpDown numericUpDown, string serviceName)
+        {
+            if (chkBox.Checked)
+            {
+                txtBox.Enabled = true;
+                numericUpDown.Enabled = true;
+            }
+            else
+            {
+                txtBox.Enabled = false;
+                numericUpDown.Enabled = false;
+                SetPrice(txtBox, numericUpDown, serviceName, true);
+            }
+        }
+
+        private void qtyKameez_ValueChanged(object sender, EventArgs e)
+        {
+            SetPrice(txtKameezPrice, qtyKameez, "Kameez");
+        }
+
+        private void qtyPant_ValueChanged(object sender, EventArgs e)
+        {
+            SetPrice(txtPantPrice, qtyPant, "Pant");
+        }
+
+        private void qtyShirt_ValueChanged(object sender, EventArgs e)
+        {
+            SetPrice(txtShirtPrice, qtyShirt, "Shirt");
+        }
+
+        private void qtyUndergarments_ValueChanged(object sender, EventArgs e)
+        {
+            SetPrice(txtUndergarmentPrice, qtyUndergarments, "Undergarments");
+        }
+
+        private void qty3Piece_ValueChanged(object sender, EventArgs e)
+        {
+            SetPrice(txt3PieceSuitPrice, qty3Piece, "3 Piece Suit");
+        }
+
+        private void qty2Piece_ValueChanged(object sender, EventArgs e)
+        {
+            SetPrice(txt2PieceSuitePrice, qty2Piece, "2 Piece Suit");
+        }
+
+        private void qtyJacket_ValueChanged(object sender, EventArgs e)
+        {
+            SetPrice(txtJacketPrice, qtyJacket, "Jacket");
+        }
+
+        private void qtyCoat_ValueChanged(object sender, EventArgs e)
+        {
+            SetPrice(txtCoatPrice, qtyCoat, "Coat");
+        }
+
+        private void qtySocks_ValueChanged(object sender, EventArgs e)
+        {
+            SetPrice(txtSocksPrice, qtySocks, "Socks");
+        }
+
+        private void qtyHoodie_ValueChanged(object sender, EventArgs e)
+        {
+            SetPrice(txtHoodiePrice, qtyHoodie, "Hoodie");
+        }
+
+        private void qtySweater_ValueChanged(object sender, EventArgs e)
+        {
+            SetPrice(txtShalwarPrice, qtyShalwar, "Sweater");
+        }
+
+        private void qtyShoes_ValueChanged(object sender, EventArgs e)
+        {
+            SetPrice(txtShoesPrice, qtyShoes, "Shoes");
+        }
+
+        private void qtyTowel_ValueChanged(object sender, EventArgs e)
+        {
+            SetPrice(txtTowelPrice, qtyTowel, "Towel");
+        }
+
+        private void qtyOther_ValueChanged(object sender, EventArgs e)
+        {
+            SetPrice(txtOtherWashablesPrice, qtyOther, "Other Washables");
+        }
+
+        private void chkPant_CheckedChanged(object sender, EventArgs e)
+        {
+            SetDefault(chkPant, txtPantPrice, qtyPant, "Kameez");
+        }
+
+        private void chkShirt_CheckedChanged(object sender, EventArgs e)
+        {
+            SetDefault(chkShirt, txtShirtPrice, qtyShirt, "Shirt");
+        }
+
+        private void chkUndergarments_CheckedChanged(object sender, EventArgs e)
+        {
+            SetDefault(chkUndergarments, txtUndergarmentPrice, qtyUndergarments, "Undergarments");
+        }
+
+        private void chk3Piece_CheckedChanged(object sender, EventArgs e)
+        {
+            SetDefault(chk3Piece, txt3PieceSuitPrice, qty3Piece, "3 Piece Suit");
+        }
+
+        private void chk2Piece_CheckedChanged(object sender, EventArgs e)
+        {
+            SetDefault(chk2Piece, txt2PieceSuitePrice, qty2Piece, "2 Piece Suit");
+        }
+
+        private void chkJacket_CheckedChanged(object sender, EventArgs e)
+        {
+            SetDefault(chkJacket, txtJacketPrice, qtyJacket, "Jacket");
+        }
+
+        private void txtSocksPrice_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void chkSocks_CheckedChanged(object sender, EventArgs e)
+        {
+            SetDefault(chkSocks, txtSocksPrice, qtySocks, "Socks");
+        }
+
+        private void txtSweaterPrice_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void chkCoat_CheckedChanged(object sender, EventArgs e)
+        {
+            SetDefault(chkCoat, txtCoatPrice, qtyCoat, "Coat");
+        }
+
+        private void labelDashboard_Click(object sender, EventArgs e)
         {
 
         }

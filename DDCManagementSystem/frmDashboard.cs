@@ -45,7 +45,8 @@ namespace DDCManagementSystem
 
         private void frmDashboard_Load(object sender, EventArgs e)
         {
-
+            //labelDashboard.Location = new Point((this.Width - labelDashboard.Width) / 2, (this.Height - labelDashboard.Height) / 2);
+            this.WindowState = FormWindowState.Maximized;
         }
 
         private void panel4_Paint(object sender, PaintEventArgs e)
@@ -92,6 +93,39 @@ namespace DDCManagementSystem
         private void btnVendor_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnCustomers_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new frmCustomer().ShowDialog();
+            this.Close();
+        }
+
+        private void btnServices_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new frmOrderPricing().ShowDialog();
+            this.Close();
+        }
+
+        private void btnReports_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new frmReports().ShowDialog();
+            this.Close();
+        }
+
+        private void labelDashboard_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSettings_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new frmSettings().ShowDialog();
+            this.Close();
         }
     }
 }

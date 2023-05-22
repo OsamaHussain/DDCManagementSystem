@@ -1,6 +1,6 @@
 ﻿namespace DDCManagementSystem
 {
-    partial class frmOrders
+    partial class frmReports
     {
         /// <summary>
         /// Required designer variable.
@@ -28,110 +28,100 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panelDesktop = new System.Windows.Forms.Panel();
-            this.btnCreateOrder = new System.Windows.Forms.Button();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.gvOrder = new System.Windows.Forms.DataGridView();
+            this.From = new System.Windows.Forms.MonthCalendar();
+            this.grdReport = new System.Windows.Forms.DataGridView();
+            this.To = new System.Windows.Forms.MonthCalendar();
+            this.lblFrom = new System.Windows.Forms.Label();
+            this.lblToThis = new System.Windows.Forms.Label();
             this.labelDashboard = new System.Windows.Forms.Label();
-            this.panelTitleBar2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.panelTitleBar2 = new System.Windows.Forms.Panel();
             this.panelTitleBar = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panelMenu = new System.Windows.Forms.Panel();
+            this.panelDesktop = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtTotalIncome = new System.Windows.Forms.TextBox();
             this.btnSettings = new FontAwesome.Sharp.IconButton();
-            this.btnReports = new FontAwesome.Sharp.IconButton();
-            this.btnPricing = new FontAwesome.Sharp.IconButton();
-            this.btnCustomers = new FontAwesome.Sharp.IconButton();
             this.btnLogout = new FontAwesome.Sharp.IconButton();
+            this.btnReports = new FontAwesome.Sharp.IconButton();
+            this.btnServices = new FontAwesome.Sharp.IconButton();
+            this.btnCustomers = new FontAwesome.Sharp.IconButton();
             this.btnOrders = new FontAwesome.Sharp.IconButton();
             this.btnDashboard = new FontAwesome.Sharp.IconButton();
-            this.panelDesktop.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gvOrder)).BeginInit();
-            this.panelTitleBar2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grdReport)).BeginInit();
             this.panel3.SuspendLayout();
+            this.panelTitleBar2.SuspendLayout();
             this.panelTitleBar.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panelMenu.SuspendLayout();
+            this.panelDesktop.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panelDesktop
+            // From
             // 
-            this.panelDesktop.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panelDesktop.Controls.Add(this.btnCreateOrder);
-            this.panelDesktop.Controls.Add(this.tableLayoutPanel1);
-            this.panelDesktop.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelDesktop.Location = new System.Drawing.Point(230, 60);
-            this.panelDesktop.Margin = new System.Windows.Forms.Padding(0);
-            this.panelDesktop.Name = "panelDesktop";
-            this.panelDesktop.Size = new System.Drawing.Size(570, 390);
-            this.panelDesktop.TabIndex = 11;
-            this.panelDesktop.Paint += new System.Windows.Forms.PaintEventHandler(this.panelDesktop_Paint);
+            this.From.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.From.Location = new System.Drawing.Point(1073, 184);
+            this.From.Margin = new System.Windows.Forms.Padding(7);
+            this.From.Name = "From";
+            this.From.TabIndex = 0;
+            this.From.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.From_DateChanged);
             // 
-            // btnCreateOrder
+            // grdReport
             // 
-            this.btnCreateOrder.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnCreateOrder.Font = new System.Drawing.Font("Gabriola", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCreateOrder.Location = new System.Drawing.Point(0, 298);
-            this.btnCreateOrder.Margin = new System.Windows.Forms.Padding(0);
-            this.btnCreateOrder.Name = "btnCreateOrder";
-            this.btnCreateOrder.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.btnCreateOrder.Size = new System.Drawing.Size(570, 92);
-            this.btnCreateOrder.TabIndex = 0;
-            this.btnCreateOrder.Text = "Create New Order";
-            this.btnCreateOrder.UseVisualStyleBackColor = true;
-            this.btnCreateOrder.Click += new System.EventHandler(this.btnCreateOrder_Click);
+            this.grdReport.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.grdReport.BackgroundColor = System.Drawing.Color.White;
+            this.grdReport.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.grdReport.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdReport.Location = new System.Drawing.Point(314, 158);
+            this.grdReport.Margin = new System.Windows.Forms.Padding(2);
+            this.grdReport.Name = "grdReport";
+            this.grdReport.RowHeadersWidth = 51;
+            this.grdReport.RowTemplate.Height = 24;
+            this.grdReport.Size = new System.Drawing.Size(714, 433);
+            this.grdReport.TabIndex = 1;
             // 
-            // tableLayoutPanel1
+            // To
             // 
-            this.tableLayoutPanel1.ColumnCount = 1;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Controls.Add(this.gvOrder, 0, 0);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(570, 390);
-            this.tableLayoutPanel1.TabIndex = 2;
-            this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
+            this.To.Location = new System.Drawing.Point(1073, 429);
+            this.To.Margin = new System.Windows.Forms.Padding(7);
+            this.To.Name = "To";
+            this.To.TabIndex = 2;
+            this.To.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.To_DateChanged);
             // 
-            // gvOrder
+            // lblFrom
             // 
-            this.gvOrder.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.gvOrder.BackgroundColor = System.Drawing.Color.White;
-            this.gvOrder.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.gvOrder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gvOrder.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gvOrder.Location = new System.Drawing.Point(0, 0);
-            this.gvOrder.Margin = new System.Windows.Forms.Padding(0);
-            this.gvOrder.Name = "gvOrder";
-            this.gvOrder.RowHeadersWidth = 51;
-            this.gvOrder.Size = new System.Drawing.Size(570, 390);
-            this.gvOrder.TabIndex = 1;
-            this.gvOrder.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.lblFrom.AutoSize = true;
+            this.lblFrom.Font = new System.Drawing.Font("Courier New", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFrom.Location = new System.Drawing.Point(1068, 158);
+            this.lblFrom.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblFrom.Name = "lblFrom";
+            this.lblFrom.Size = new System.Drawing.Size(129, 25);
+            this.lblFrom.TabIndex = 3;
+            this.lblFrom.Text = "From DATE";
+            // 
+            // lblToThis
+            // 
+            this.lblToThis.AutoSize = true;
+            this.lblToThis.Font = new System.Drawing.Font("Courier New", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblToThis.Location = new System.Drawing.Point(1068, 397);
+            this.lblToThis.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblToThis.Name = "lblToThis";
+            this.lblToThis.Size = new System.Drawing.Size(129, 25);
+            this.lblToThis.TabIndex = 4;
+            this.lblToThis.Text = "Till DATE";
             // 
             // labelDashboard
             // 
             this.labelDashboard.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelDashboard.Font = new System.Drawing.Font("Monotype Corsiva", 30F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.labelDashboard.ForeColor = System.Drawing.Color.White;
-            this.labelDashboard.Location = new System.Drawing.Point(225, 8);
+            this.labelDashboard.Location = new System.Drawing.Point(477, 6);
             this.labelDashboard.Name = "labelDashboard";
-            this.labelDashboard.Size = new System.Drawing.Size(126, 40);
+            this.labelDashboard.Size = new System.Drawing.Size(143, 49);
             this.labelDashboard.TabIndex = 0;
-            this.labelDashboard.Text = "Orders";
-            // 
-            // panelTitleBar2
-            // 
-            this.panelTitleBar2.Controls.Add(this.panel3);
-            this.panelTitleBar2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelTitleBar2.Location = new System.Drawing.Point(0, 0);
-            this.panelTitleBar2.Name = "panelTitleBar2";
-            this.panelTitleBar2.Size = new System.Drawing.Size(570, 60);
-            this.panelTitleBar2.TabIndex = 11;
+            this.labelDashboard.Text = "Reports";
             // 
             // panel3
             // 
@@ -141,8 +131,17 @@
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Margin = new System.Windows.Forms.Padding(0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(570, 60);
+            this.panel3.Size = new System.Drawing.Size(1140, 60);
             this.panel3.TabIndex = 13;
+            // 
+            // panelTitleBar2
+            // 
+            this.panelTitleBar2.Controls.Add(this.panel3);
+            this.panelTitleBar2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelTitleBar2.Location = new System.Drawing.Point(0, 0);
+            this.panelTitleBar2.Name = "panelTitleBar2";
+            this.panelTitleBar2.Size = new System.Drawing.Size(1140, 60);
+            this.panelTitleBar2.TabIndex = 11;
             // 
             // panelTitleBar
             // 
@@ -151,7 +150,7 @@
             this.panelTitleBar.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTitleBar.Location = new System.Drawing.Point(230, 0);
             this.panelTitleBar.Name = "panelTitleBar";
-            this.panelTitleBar.Size = new System.Drawing.Size(570, 60);
+            this.panelTitleBar.Size = new System.Drawing.Size(1140, 60);
             this.panelTitleBar.TabIndex = 10;
             // 
             // label1
@@ -179,21 +178,56 @@
             // 
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
             this.panelMenu.Controls.Add(this.btnSettings);
-            this.panelMenu.Controls.Add(this.btnReports);
-            this.panelMenu.Controls.Add(this.btnPricing);
-            this.panelMenu.Controls.Add(this.btnCustomers);
             this.panelMenu.Controls.Add(this.btnLogout);
+            this.panelMenu.Controls.Add(this.btnReports);
+            this.panelMenu.Controls.Add(this.btnServices);
+            this.panelMenu.Controls.Add(this.btnCustomers);
             this.panelMenu.Controls.Add(this.btnOrders);
             this.panelMenu.Controls.Add(this.btnDashboard);
             this.panelMenu.Controls.Add(this.panel1);
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelMenu.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
             this.panelMenu.Margin = new System.Windows.Forms.Padding(0);
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Padding = new System.Windows.Forms.Padding(0, 0, 0, 15);
-            this.panelMenu.Size = new System.Drawing.Size(230, 450);
+            this.panelMenu.Size = new System.Drawing.Size(230, 749);
             this.panelMenu.TabIndex = 9;
+            // 
+            // panelDesktop
+            // 
+            this.panelDesktop.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panelDesktop.Controls.Add(this.txtTotalIncome);
+            this.panelDesktop.Controls.Add(this.label2);
+            this.panelDesktop.Controls.Add(this.To);
+            this.panelDesktop.Controls.Add(this.From);
+            this.panelDesktop.Controls.Add(this.grdReport);
+            this.panelDesktop.Controls.Add(this.lblToThis);
+            this.panelDesktop.Controls.Add(this.lblFrom);
+            this.panelDesktop.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelDesktop.Location = new System.Drawing.Point(0, 0);
+            this.panelDesktop.Margin = new System.Windows.Forms.Padding(0);
+            this.panelDesktop.Name = "panelDesktop";
+            this.panelDesktop.Size = new System.Drawing.Size(1370, 749);
+            this.panelDesktop.TabIndex = 11;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Courier New", 40F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(622, 615);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(185, 60);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Total";
+            // 
+            // txtTotalIncome
+            // 
+            this.txtTotalIncome.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtTotalIncome.Font = new System.Drawing.Font("Courier New", 40F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTotalIncome.Location = new System.Drawing.Point(813, 613);
+            this.txtTotalIncome.Name = "txtTotalIncome";
+            this.txtTotalIncome.Size = new System.Drawing.Size(214, 68);
+            this.txtTotalIncome.TabIndex = 6;
             // 
             // btnSettings
             // 
@@ -211,15 +245,39 @@
             this.btnSettings.Name = "btnSettings";
             this.btnSettings.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnSettings.Size = new System.Drawing.Size(230, 35);
-            this.btnSettings.TabIndex = 15;
+            this.btnSettings.TabIndex = 14;
             this.btnSettings.Text = "Settings";
             this.btnSettings.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSettings.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSettings.UseVisualStyleBackColor = true;
             this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
             // 
+            // btnLogout
+            // 
+            this.btnLogout.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnLogout.FlatAppearance.BorderSize = 0;
+            this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLogout.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogout.ForeColor = System.Drawing.Color.White;
+            this.btnLogout.IconChar = FontAwesome.Sharp.IconChar.SignOutAlt;
+            this.btnLogout.IconColor = System.Drawing.Color.White;
+            this.btnLogout.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnLogout.IconSize = 30;
+            this.btnLogout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLogout.Location = new System.Drawing.Point(0, 700);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnLogout.Size = new System.Drawing.Size(230, 34);
+            this.btnLogout.TabIndex = 9;
+            this.btnLogout.Text = "Logout";
+            this.btnLogout.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLogout.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnLogout.UseVisualStyleBackColor = true;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
+            // 
             // btnReports
             // 
+            this.btnReports.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(255)))));
             this.btnReports.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnReports.FlatAppearance.BorderSize = 0;
             this.btnReports.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -234,35 +292,34 @@
             this.btnReports.Name = "btnReports";
             this.btnReports.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnReports.Size = new System.Drawing.Size(230, 35);
-            this.btnReports.TabIndex = 13;
+            this.btnReports.TabIndex = 5;
             this.btnReports.Text = "Reports";
             this.btnReports.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnReports.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnReports.UseVisualStyleBackColor = true;
-            this.btnReports.Click += new System.EventHandler(this.btnReports_Click);
+            this.btnReports.UseVisualStyleBackColor = false;
             // 
-            // btnPricing
+            // btnServices
             // 
-            this.btnPricing.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnPricing.FlatAppearance.BorderSize = 0;
-            this.btnPricing.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPricing.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPricing.ForeColor = System.Drawing.Color.White;
-            this.btnPricing.IconChar = FontAwesome.Sharp.IconChar.Tags;
-            this.btnPricing.IconColor = System.Drawing.Color.White;
-            this.btnPricing.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnPricing.IconSize = 30;
-            this.btnPricing.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPricing.Location = new System.Drawing.Point(0, 168);
-            this.btnPricing.Name = "btnPricing";
-            this.btnPricing.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnPricing.Size = new System.Drawing.Size(230, 35);
-            this.btnPricing.TabIndex = 12;
-            this.btnPricing.Text = "Pricing";
-            this.btnPricing.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPricing.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnPricing.UseVisualStyleBackColor = true;
-            this.btnPricing.Click += new System.EventHandler(this.btnPricing_Click);
+            this.btnServices.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnServices.FlatAppearance.BorderSize = 0;
+            this.btnServices.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnServices.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnServices.ForeColor = System.Drawing.Color.White;
+            this.btnServices.IconChar = FontAwesome.Sharp.IconChar.Tags;
+            this.btnServices.IconColor = System.Drawing.Color.White;
+            this.btnServices.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnServices.IconSize = 30;
+            this.btnServices.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnServices.Location = new System.Drawing.Point(0, 168);
+            this.btnServices.Name = "btnServices";
+            this.btnServices.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnServices.Size = new System.Drawing.Size(230, 35);
+            this.btnServices.TabIndex = 4;
+            this.btnServices.Text = "Pricing";
+            this.btnServices.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnServices.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnServices.UseVisualStyleBackColor = true;
+            this.btnServices.Click += new System.EventHandler(this.btnServices_Click);
             // 
             // btnCustomers
             // 
@@ -280,39 +337,15 @@
             this.btnCustomers.Name = "btnCustomers";
             this.btnCustomers.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnCustomers.Size = new System.Drawing.Size(230, 35);
-            this.btnCustomers.TabIndex = 11;
+            this.btnCustomers.TabIndex = 3;
             this.btnCustomers.Text = "Customers";
             this.btnCustomers.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCustomers.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCustomers.UseVisualStyleBackColor = true;
             this.btnCustomers.Click += new System.EventHandler(this.btnCustomers_Click);
             // 
-            // btnLogout
-            // 
-            this.btnLogout.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnLogout.FlatAppearance.BorderSize = 0;
-            this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogout.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogout.ForeColor = System.Drawing.Color.White;
-            this.btnLogout.IconChar = FontAwesome.Sharp.IconChar.SignOutAlt;
-            this.btnLogout.IconColor = System.Drawing.Color.White;
-            this.btnLogout.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnLogout.IconSize = 30;
-            this.btnLogout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLogout.Location = new System.Drawing.Point(0, 401);
-            this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnLogout.Size = new System.Drawing.Size(230, 34);
-            this.btnLogout.TabIndex = 9;
-            this.btnLogout.Text = "Logout";
-            this.btnLogout.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLogout.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnLogout.UseVisualStyleBackColor = true;
-            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
-            // 
             // btnOrders
             // 
-            this.btnOrders.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(255)))));
             this.btnOrders.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnOrders.FlatAppearance.BorderSize = 0;
             this.btnOrders.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -331,11 +364,12 @@
             this.btnOrders.Text = "Orders";
             this.btnOrders.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnOrders.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnOrders.UseVisualStyleBackColor = false;
+            this.btnOrders.UseVisualStyleBackColor = true;
             this.btnOrders.Click += new System.EventHandler(this.btnOrders_Click);
             // 
             // btnDashboard
             // 
+            this.btnDashboard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
             this.btnDashboard.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnDashboard.FlatAppearance.BorderSize = 0;
             this.btnDashboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -355,54 +389,58 @@
             this.btnDashboard.Text = "Dashboard";
             this.btnDashboard.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDashboard.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnDashboard.UseVisualStyleBackColor = true;
+            this.btnDashboard.UseVisualStyleBackColor = false;
             this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);
             // 
-            // frmOrders
+            // frmReports
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.panelDesktop);
+            this.ClientSize = new System.Drawing.Size(1370, 749);
             this.Controls.Add(this.panelTitleBar);
             this.Controls.Add(this.panelMenu);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Name = "frmOrders";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Dubai Dry Cleaning | Orders";
+            this.Controls.Add(this.panelDesktop);
+            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Name = "frmReports";
+            this.Text = "frmReports";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.frmOrders_Load);
-            this.panelDesktop.ResumeLayout(false);
-            this.tableLayoutPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gvOrder)).EndInit();
-            this.panelTitleBar2.ResumeLayout(false);
+            this.Load += new System.EventHandler(this.frmReports_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.grdReport)).EndInit();
             this.panel3.ResumeLayout(false);
+            this.panelTitleBar2.ResumeLayout(false);
             this.panelTitleBar.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panelMenu.ResumeLayout(false);
+            this.panelDesktop.ResumeLayout(false);
+            this.panelDesktop.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.Panel panelDesktop;
+
+        private System.Windows.Forms.MonthCalendar From;
+        private System.Windows.Forms.DataGridView grdReport;
+        private System.Windows.Forms.MonthCalendar To;
+        private System.Windows.Forms.Label lblFrom;
+        private System.Windows.Forms.Label lblToThis;
         private System.Windows.Forms.Label labelDashboard;
-        private System.Windows.Forms.Panel panelTitleBar2;
         private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panelTitleBar2;
         private System.Windows.Forms.Panel panelTitleBar;
         private System.Windows.Forms.Label label1;
+        private FontAwesome.Sharp.IconButton btnSettings;
         private FontAwesome.Sharp.IconButton btnLogout;
+        private FontAwesome.Sharp.IconButton btnReports;
+        private FontAwesome.Sharp.IconButton btnServices;
+        private FontAwesome.Sharp.IconButton btnCustomers;
         private FontAwesome.Sharp.IconButton btnOrders;
         private FontAwesome.Sharp.IconButton btnDashboard;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panelMenu;
-        private System.Windows.Forms.Button btnCreateOrder;
-        private System.Windows.Forms.DataGridView gvOrder;
-        private FontAwesome.Sharp.IconButton btnReports;
-        private FontAwesome.Sharp.IconButton btnPricing;
-        private FontAwesome.Sharp.IconButton btnCustomers;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private FontAwesome.Sharp.IconButton btnSettings;
+        private System.Windows.Forms.Panel panelDesktop;
+        private System.Windows.Forms.TextBox txtTotalIncome;
+        private System.Windows.Forms.Label label2;
     }
 }

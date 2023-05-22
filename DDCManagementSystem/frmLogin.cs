@@ -32,7 +32,7 @@ namespace DDCManagementSystem
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            SqlConnection connection = new SqlConnection("Data Source=DESKTOP-2GGTQSU\\SQLEXPRESS01;Initial Catalog=DDCManagementSystem;Integrated Security=True");
+            SqlConnection connection = new SqlConnection(Connection.CONNECTION_STRING);
             connection.Open();
             string query = $"SELECT * FROM tblUsers where username='{txtUsername.Text}' OR password='{txtPassword.Text}'";
             SqlCommand command = new SqlCommand(query, connection);
