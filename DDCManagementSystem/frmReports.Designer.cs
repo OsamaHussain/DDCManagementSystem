@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmReports));
             this.From = new System.Windows.Forms.MonthCalendar();
             this.grdReport = new System.Windows.Forms.DataGridView();
             this.To = new System.Windows.Forms.MonthCalendar();
@@ -40,9 +41,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panelMenu = new System.Windows.Forms.Panel();
-            this.panelDesktop = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtTotalIncome = new System.Windows.Forms.TextBox();
             this.btnSettings = new FontAwesome.Sharp.IconButton();
             this.btnLogout = new FontAwesome.Sharp.IconButton();
             this.btnReports = new FontAwesome.Sharp.IconButton();
@@ -50,6 +48,11 @@
             this.btnCustomers = new FontAwesome.Sharp.IconButton();
             this.btnOrders = new FontAwesome.Sharp.IconButton();
             this.btnDashboard = new FontAwesome.Sharp.IconButton();
+            this.panelDesktop = new System.Windows.Forms.Panel();
+            this.txtTotalIncome = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnTrack = new FontAwesome.Sharp.IconButton();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.grdReport)).BeginInit();
             this.panel3.SuspendLayout();
             this.panelTitleBar2.SuspendLayout();
@@ -177,6 +180,7 @@
             // panelMenu
             // 
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
+            this.panelMenu.Controls.Add(this.btnTrack);
             this.panelMenu.Controls.Add(this.btnSettings);
             this.panelMenu.Controls.Add(this.btnLogout);
             this.panelMenu.Controls.Add(this.btnReports);
@@ -192,42 +196,6 @@
             this.panelMenu.Padding = new System.Windows.Forms.Padding(0, 0, 0, 15);
             this.panelMenu.Size = new System.Drawing.Size(230, 749);
             this.panelMenu.TabIndex = 9;
-            // 
-            // panelDesktop
-            // 
-            this.panelDesktop.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panelDesktop.Controls.Add(this.txtTotalIncome);
-            this.panelDesktop.Controls.Add(this.label2);
-            this.panelDesktop.Controls.Add(this.To);
-            this.panelDesktop.Controls.Add(this.From);
-            this.panelDesktop.Controls.Add(this.grdReport);
-            this.panelDesktop.Controls.Add(this.lblToThis);
-            this.panelDesktop.Controls.Add(this.lblFrom);
-            this.panelDesktop.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelDesktop.Location = new System.Drawing.Point(0, 0);
-            this.panelDesktop.Margin = new System.Windows.Forms.Padding(0);
-            this.panelDesktop.Name = "panelDesktop";
-            this.panelDesktop.Size = new System.Drawing.Size(1370, 749);
-            this.panelDesktop.TabIndex = 11;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Courier New", 40F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(622, 615);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(185, 60);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Total";
-            // 
-            // txtTotalIncome
-            // 
-            this.txtTotalIncome.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtTotalIncome.Font = new System.Drawing.Font("Courier New", 40F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTotalIncome.Location = new System.Drawing.Point(813, 613);
-            this.txtTotalIncome.Name = "txtTotalIncome";
-            this.txtTotalIncome.Size = new System.Drawing.Size(214, 68);
-            this.txtTotalIncome.TabIndex = 6;
             // 
             // btnSettings
             // 
@@ -246,7 +214,7 @@
             this.btnSettings.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnSettings.Size = new System.Drawing.Size(230, 35);
             this.btnSettings.TabIndex = 14;
-            this.btnSettings.Text = "Settings";
+            this.btnSettings.Text = "Manage Users";
             this.btnSettings.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSettings.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSettings.UseVisualStyleBackColor = true;
@@ -392,6 +360,74 @@
             this.btnDashboard.UseVisualStyleBackColor = false;
             this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);
             // 
+            // panelDesktop
+            // 
+            this.panelDesktop.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panelDesktop.Controls.Add(this.dateTimePicker1);
+            this.panelDesktop.Controls.Add(this.txtTotalIncome);
+            this.panelDesktop.Controls.Add(this.label2);
+            this.panelDesktop.Controls.Add(this.To);
+            this.panelDesktop.Controls.Add(this.From);
+            this.panelDesktop.Controls.Add(this.grdReport);
+            this.panelDesktop.Controls.Add(this.lblToThis);
+            this.panelDesktop.Controls.Add(this.lblFrom);
+            this.panelDesktop.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelDesktop.Location = new System.Drawing.Point(0, 0);
+            this.panelDesktop.Margin = new System.Windows.Forms.Padding(0);
+            this.panelDesktop.Name = "panelDesktop";
+            this.panelDesktop.Size = new System.Drawing.Size(1370, 749);
+            this.panelDesktop.TabIndex = 11;
+            this.panelDesktop.Paint += new System.Windows.Forms.PaintEventHandler(this.panelDesktop_Paint);
+            // 
+            // txtTotalIncome
+            // 
+            this.txtTotalIncome.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtTotalIncome.Font = new System.Drawing.Font("Courier New", 40F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTotalIncome.Location = new System.Drawing.Point(813, 613);
+            this.txtTotalIncome.Name = "txtTotalIncome";
+            this.txtTotalIncome.Size = new System.Drawing.Size(214, 68);
+            this.txtTotalIncome.TabIndex = 6;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Courier New", 40F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(622, 615);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(185, 60);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Total";
+            // 
+            // btnTrack
+            // 
+            this.btnTrack.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnTrack.FlatAppearance.BorderSize = 0;
+            this.btnTrack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTrack.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTrack.ForeColor = System.Drawing.Color.White;
+            this.btnTrack.IconChar = FontAwesome.Sharp.IconChar.LocationArrow;
+            this.btnTrack.IconColor = System.Drawing.Color.White;
+            this.btnTrack.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnTrack.IconSize = 30;
+            this.btnTrack.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnTrack.Location = new System.Drawing.Point(0, 273);
+            this.btnTrack.Name = "btnTrack";
+            this.btnTrack.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnTrack.Size = new System.Drawing.Size(230, 35);
+            this.btnTrack.TabIndex = 18;
+            this.btnTrack.Text = "Tracking";
+            this.btnTrack.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnTrack.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnTrack.UseVisualStyleBackColor = true;
+            this.btnTrack.Click += new System.EventHandler(this.btnTrack_Click);
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(1081, 192);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker1.TabIndex = 7;
+            // 
             // frmReports
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -400,9 +436,10 @@
             this.Controls.Add(this.panelTitleBar);
             this.Controls.Add(this.panelMenu);
             this.Controls.Add(this.panelDesktop);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmReports";
-            this.Text = "frmReports";
+            this.Text = "Dubai Dry Cleaning | Reports";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmReports_Load);
             ((System.ComponentModel.ISupportInitialize)(this.grdReport)).EndInit();
@@ -442,5 +479,7 @@
         private System.Windows.Forms.Panel panelDesktop;
         private System.Windows.Forms.TextBox txtTotalIncome;
         private System.Windows.Forms.Label label2;
+        private FontAwesome.Sharp.IconButton btnTrack;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
     }
 }

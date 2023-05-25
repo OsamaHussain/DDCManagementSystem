@@ -108,5 +108,17 @@ namespace DDCManagementSystem
             new frmSettings().ShowDialog();
             this.Close();
         }
+
+        private void btnTrack_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new frmTracking().ShowDialog();
+            this.Close();
+        }
+
+        private void panelDesktop_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

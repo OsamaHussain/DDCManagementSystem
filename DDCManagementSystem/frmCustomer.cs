@@ -28,7 +28,7 @@ namespace DDCManagementSystem
         private void LoadCustomer()
         {
             SqlConnection con = new SqlConnection(Connection.CONNECTION_STRING);
-            var dataAdapter = new SqlDataAdapter("select id as ID, name as Name, phone as Phone, email as Email, address as Address from tblCustomer;", con);
+            var dataAdapter = new SqlDataAdapter("select id as 'Customer ID', name as Name, phone as Phone, email as Email, address as Address from tblCustomer;", con);
             var commandBuilder = new SqlCommandBuilder(dataAdapter);
             var ds = new DataSet();
             dataAdapter.Fill(ds);
@@ -38,11 +38,11 @@ namespace DDCManagementSystem
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             DataGridViewCellCollection dtColletion = dataGridView1.Rows[e.RowIndex].Cells;
-            txtCustomerId.Text = dtColletion["id"].Value.ToString().Trim();
-            txtCustomerName.Text = dtColletion["name"].Value.ToString().Trim();
-            txtPhone.Text = dtColletion["phone"].Value.ToString().Trim();
-            txtEmail.Text = dtColletion["email"].Value.ToString().Trim();
-            txtAddress.Text = dtColletion["address"].Value.ToString().Trim();
+            txtCustomerId.Text = dtColletion["Customer ID"].Value.ToString().Trim();
+            txtCustomerName.Text = dtColletion["Name"].Value.ToString().Trim();
+            txtPhone.Text = dtColletion["Phone"].Value.ToString().Trim();
+            txtEmail.Text = dtColletion["Email"].Value.ToString().Trim();
+            txtAddress.Text = dtColletion["Address"].Value.ToString().Trim();
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -128,6 +128,18 @@ namespace DDCManagementSystem
         }
 
         private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnTrack_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new frmTracking().ShowDialog();
+            this.Close();
+        }
+
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
 
         }

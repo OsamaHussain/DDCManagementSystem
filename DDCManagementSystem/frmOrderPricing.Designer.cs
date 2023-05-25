@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmOrderPricing));
             this.lblServicePrice = new System.Windows.Forms.Label();
             this.txtServicePrice = new System.Windows.Forms.TextBox();
             this.lblServiceName = new System.Windows.Forms.Label();
@@ -43,7 +44,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panelMenu = new System.Windows.Forms.Panel();
-            this.panelDesktop = new System.Windows.Forms.Panel();
             this.btnSettings = new FontAwesome.Sharp.IconButton();
             this.btnLogout = new FontAwesome.Sharp.IconButton();
             this.btnReports = new FontAwesome.Sharp.IconButton();
@@ -51,6 +51,8 @@
             this.btnCustomers = new FontAwesome.Sharp.IconButton();
             this.btnOrders = new FontAwesome.Sharp.IconButton();
             this.btnDashboard = new FontAwesome.Sharp.IconButton();
+            this.panelDesktop = new System.Windows.Forms.Panel();
+            this.btnTrack = new FontAwesome.Sharp.IconButton();
             ((System.ComponentModel.ISupportInitialize)(this.grdServicePricing)).BeginInit();
             this.panel3.SuspendLayout();
             this.panelTitleBar2.SuspendLayout();
@@ -75,7 +77,7 @@
             // 
             this.txtServicePrice.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtServicePrice.Location = new System.Drawing.Point(956, 400);
-            this.txtServicePrice.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtServicePrice.Margin = new System.Windows.Forms.Padding(2);
             this.txtServicePrice.Name = "txtServicePrice";
             this.txtServicePrice.Size = new System.Drawing.Size(331, 33);
             this.txtServicePrice.TabIndex = 25;
@@ -96,7 +98,7 @@
             this.txtServiceName.Enabled = false;
             this.txtServiceName.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtServiceName.Location = new System.Drawing.Point(956, 337);
-            this.txtServiceName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtServiceName.Margin = new System.Windows.Forms.Padding(2);
             this.txtServiceName.Name = "txtServiceName";
             this.txtServiceName.Size = new System.Drawing.Size(331, 33);
             this.txtServiceName.TabIndex = 23;
@@ -117,7 +119,7 @@
             this.txtId.Enabled = false;
             this.txtId.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtId.Location = new System.Drawing.Point(956, 271);
-            this.txtId.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtId.Margin = new System.Windows.Forms.Padding(2);
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(331, 33);
             this.txtId.TabIndex = 21;
@@ -126,7 +128,7 @@
             // 
             this.btnUpdate.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdate.Location = new System.Drawing.Point(956, 464);
-            this.btnUpdate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(2);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(159, 48);
             this.btnUpdate.TabIndex = 18;
@@ -143,7 +145,7 @@
             this.grdServicePricing.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.grdServicePricing.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdServicePricing.Location = new System.Drawing.Point(315, 150);
-            this.grdServicePricing.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grdServicePricing.Margin = new System.Windows.Forms.Padding(2);
             this.grdServicePricing.Name = "grdServicePricing";
             this.grdServicePricing.ReadOnly = true;
             this.grdServicePricing.RowHeadersWidth = 51;
@@ -151,6 +153,7 @@
             this.grdServicePricing.Size = new System.Drawing.Size(589, 476);
             this.grdServicePricing.TabIndex = 16;
             this.grdServicePricing.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdServicePricing_CellClick);
+            this.grdServicePricing.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdServicePricing_CellContentClick);
             // 
             // labelDashboard
             // 
@@ -217,6 +220,7 @@
             // panelMenu
             // 
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
+            this.panelMenu.Controls.Add(this.btnTrack);
             this.panelMenu.Controls.Add(this.btnSettings);
             this.panelMenu.Controls.Add(this.btnLogout);
             this.panelMenu.Controls.Add(this.btnReports);
@@ -232,24 +236,6 @@
             this.panelMenu.Padding = new System.Windows.Forms.Padding(0, 0, 0, 15);
             this.panelMenu.Size = new System.Drawing.Size(230, 749);
             this.panelMenu.TabIndex = 27;
-            // 
-            // panelDesktop
-            // 
-            this.panelDesktop.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panelDesktop.Controls.Add(this.txtId);
-            this.panelDesktop.Controls.Add(this.btnUpdate);
-            this.panelDesktop.Controls.Add(this.grdServicePricing);
-            this.panelDesktop.Controls.Add(this.lblId);
-            this.panelDesktop.Controls.Add(this.lblServiceName);
-            this.panelDesktop.Controls.Add(this.lblServicePrice);
-            this.panelDesktop.Controls.Add(this.txtServicePrice);
-            this.panelDesktop.Controls.Add(this.txtServiceName);
-            this.panelDesktop.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelDesktop.Location = new System.Drawing.Point(0, 0);
-            this.panelDesktop.Margin = new System.Windows.Forms.Padding(0);
-            this.panelDesktop.Name = "panelDesktop";
-            this.panelDesktop.Size = new System.Drawing.Size(1370, 749);
-            this.panelDesktop.TabIndex = 29;
             // 
             // btnSettings
             // 
@@ -268,7 +254,7 @@
             this.btnSettings.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnSettings.Size = new System.Drawing.Size(230, 35);
             this.btnSettings.TabIndex = 14;
-            this.btnSettings.Text = "Settings";
+            this.btnSettings.Text = "Manage Users";
             this.btnSettings.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSettings.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSettings.UseVisualStyleBackColor = true;
@@ -415,6 +401,47 @@
             this.btnDashboard.UseVisualStyleBackColor = false;
             this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);
             // 
+            // panelDesktop
+            // 
+            this.panelDesktop.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panelDesktop.Controls.Add(this.txtId);
+            this.panelDesktop.Controls.Add(this.btnUpdate);
+            this.panelDesktop.Controls.Add(this.grdServicePricing);
+            this.panelDesktop.Controls.Add(this.lblId);
+            this.panelDesktop.Controls.Add(this.lblServiceName);
+            this.panelDesktop.Controls.Add(this.lblServicePrice);
+            this.panelDesktop.Controls.Add(this.txtServicePrice);
+            this.panelDesktop.Controls.Add(this.txtServiceName);
+            this.panelDesktop.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelDesktop.Location = new System.Drawing.Point(0, 0);
+            this.panelDesktop.Margin = new System.Windows.Forms.Padding(0);
+            this.panelDesktop.Name = "panelDesktop";
+            this.panelDesktop.Size = new System.Drawing.Size(1370, 749);
+            this.panelDesktop.TabIndex = 29;
+            // 
+            // btnTrack
+            // 
+            this.btnTrack.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnTrack.FlatAppearance.BorderSize = 0;
+            this.btnTrack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTrack.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTrack.ForeColor = System.Drawing.Color.White;
+            this.btnTrack.IconChar = FontAwesome.Sharp.IconChar.LocationArrow;
+            this.btnTrack.IconColor = System.Drawing.Color.White;
+            this.btnTrack.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnTrack.IconSize = 30;
+            this.btnTrack.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnTrack.Location = new System.Drawing.Point(0, 273);
+            this.btnTrack.Name = "btnTrack";
+            this.btnTrack.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnTrack.Size = new System.Drawing.Size(230, 35);
+            this.btnTrack.TabIndex = 16;
+            this.btnTrack.Text = "Tracking";
+            this.btnTrack.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnTrack.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnTrack.UseVisualStyleBackColor = true;
+            this.btnTrack.Click += new System.EventHandler(this.btnTrack_Click);
+            // 
             // frmOrderPricing
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -423,9 +450,10 @@
             this.Controls.Add(this.panelTitleBar);
             this.Controls.Add(this.panelMenu);
             this.Controls.Add(this.panelDesktop);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmOrderPricing";
-            this.Text = "frmOrderPricing";
+            this.Text = "Dubai Dry Cleaning | Pricing";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmOrderPricing_Load);
             ((System.ComponentModel.ISupportInitialize)(this.grdServicePricing)).EndInit();
@@ -465,5 +493,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panelMenu;
         private System.Windows.Forms.Panel panelDesktop;
+        private FontAwesome.Sharp.IconButton btnTrack;
     }
 }

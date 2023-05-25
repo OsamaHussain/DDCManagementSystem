@@ -112,7 +112,6 @@ namespace DDCManagementSystem
                 MessageBox.Show("User Successfully Created");
         }
 
-
         private void LoadUsers()
         {
             SqlConnection con = new SqlConnection(Connection.CONNECTION_STRING);
@@ -156,6 +155,18 @@ namespace DDCManagementSystem
             txtUsername.Text = dtColletion["Username"].Value.ToString().Trim();
             txtPassword.Text = dtColletion["Password"].Value.ToString().Trim();
             txtRole.Text = dtColletion["Role"].Value.ToString().Trim();
+        }
+
+        private void btnTrack_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new frmTracking().ShowDialog();
+            this.Close();
+        }
+
+        private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
+        {
+
         }
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmOrders));
             this.panelDesktop = new System.Windows.Forms.Panel();
             this.btnCreateOrder = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -46,6 +47,7 @@
             this.btnLogout = new FontAwesome.Sharp.IconButton();
             this.btnOrders = new FontAwesome.Sharp.IconButton();
             this.btnDashboard = new FontAwesome.Sharp.IconButton();
+            this.btnTrack = new FontAwesome.Sharp.IconButton();
             this.panelDesktop.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gvOrder)).BeginInit();
@@ -178,6 +180,7 @@
             // panelMenu
             // 
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
+            this.panelMenu.Controls.Add(this.btnTrack);
             this.panelMenu.Controls.Add(this.btnSettings);
             this.panelMenu.Controls.Add(this.btnReports);
             this.panelMenu.Controls.Add(this.btnPricing);
@@ -212,7 +215,7 @@
             this.btnSettings.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnSettings.Size = new System.Drawing.Size(230, 35);
             this.btnSettings.TabIndex = 15;
-            this.btnSettings.Text = "Settings";
+            this.btnSettings.Text = "Manage Users";
             this.btnSettings.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSettings.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSettings.UseVisualStyleBackColor = true;
@@ -358,6 +361,29 @@
             this.btnDashboard.UseVisualStyleBackColor = true;
             this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);
             // 
+            // btnTrack
+            // 
+            this.btnTrack.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnTrack.FlatAppearance.BorderSize = 0;
+            this.btnTrack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTrack.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTrack.ForeColor = System.Drawing.Color.White;
+            this.btnTrack.IconChar = FontAwesome.Sharp.IconChar.LocationArrow;
+            this.btnTrack.IconColor = System.Drawing.Color.White;
+            this.btnTrack.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnTrack.IconSize = 30;
+            this.btnTrack.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnTrack.Location = new System.Drawing.Point(0, 273);
+            this.btnTrack.Name = "btnTrack";
+            this.btnTrack.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnTrack.Size = new System.Drawing.Size(230, 35);
+            this.btnTrack.TabIndex = 17;
+            this.btnTrack.Text = "Tracking";
+            this.btnTrack.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnTrack.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnTrack.UseVisualStyleBackColor = true;
+            this.btnTrack.Click += new System.EventHandler(this.btnTrack_Click);
+            // 
             // frmOrders
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -367,6 +393,7 @@
             this.Controls.Add(this.panelTitleBar);
             this.Controls.Add(this.panelMenu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmOrders";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dubai Dry Cleaning | Orders";
@@ -404,5 +431,6 @@
         private FontAwesome.Sharp.IconButton btnCustomers;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private FontAwesome.Sharp.IconButton btnSettings;
+        private FontAwesome.Sharp.IconButton btnTrack;
     }
 }

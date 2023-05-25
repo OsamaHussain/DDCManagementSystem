@@ -53,3 +53,4 @@ C:\Users\Osama\Desktop\1\DDCManagementSystem\DDCManagementSystem\obj\Debug\DDCMa
 C:\Users\Osama\Desktop\1\DDCManagementSystem\DDCManagementSystem\obj\Debug\DDCManagementSystem.exe
 C:\Users\Osama\Desktop\1\DDCManagementSystem\DDCManagementSystem\obj\Debug\DDCManagementSystem.pdb
 C:\Users\Osama\Desktop\1\DDCManagementSystem\DDCManagementSystem\obj\Debug\DDCManagementSystem.frmSettings.resources
+C:\Users\Osama\Desktop\1\DDCManagementSystem\DDCManagementSystem\obj\Debug\DDCManagementSystem.frmTracking.resources
