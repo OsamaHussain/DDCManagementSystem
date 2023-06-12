@@ -59,7 +59,8 @@
             this.txtFullName = new System.Windows.Forms.TextBox();
             this.lblCustmerName = new System.Windows.Forms.Label();
             this.lblEmail = new System.Windows.Forms.Label();
-            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
+            this.iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
+            this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.panel1.SuspendLayout();
             this.panelTitleBar.SuspendLayout();
             this.panelTitleBar2.SuspendLayout();
@@ -67,6 +68,7 @@
             this.panelMenu.SuspendLayout();
             this.panelDesktop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdUsers)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnDashboard
@@ -343,6 +345,8 @@
             // panelDesktop
             // 
             this.panelDesktop.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panelDesktop.Controls.Add(this.iconButton1);
+            this.panelDesktop.Controls.Add(this.iconPictureBox1);
             this.panelDesktop.Controls.Add(this.button1);
             this.panelDesktop.Controls.Add(this.btnUpdate);
             this.panelDesktop.Controls.Add(this.btnDelete);
@@ -423,7 +427,7 @@
             this.grdUsers.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.grdUsers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.grdUsers.BackgroundColor = System.Drawing.Color.White;
-            this.grdUsers.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.grdUsers.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.grdUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdUsers.Location = new System.Drawing.Point(279, 184);
             this.grdUsers.Margin = new System.Windows.Forms.Padding(2);
@@ -538,19 +542,37 @@
             this.lblEmail.TabIndex = 25;
             this.lblEmail.Text = "Password";
             // 
-            // monthCalendar1
+            // iconPictureBox1
             // 
-            this.monthCalendar1.Location = new System.Drawing.Point(677, 0);
-            this.monthCalendar1.Name = "monthCalendar1";
-            this.monthCalendar1.TabIndex = 32;
-            this.monthCalendar1.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar1_DateChanged);
+            this.iconPictureBox1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.iconPictureBox1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.iconPictureBox1.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.iconPictureBox1.IconColor = System.Drawing.SystemColors.ControlText;
+            this.iconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconPictureBox1.Location = new System.Drawing.Point(926, 183);
+            this.iconPictureBox1.Name = "iconPictureBox1";
+            this.iconPictureBox1.Size = new System.Drawing.Size(32, 32);
+            this.iconPictureBox1.TabIndex = 30;
+            this.iconPictureBox1.TabStop = false;
+            // 
+            // iconButton1
+            // 
+            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.BoxOpen;
+            this.iconButton1.IconColor = System.Drawing.Color.Black;
+            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton1.Location = new System.Drawing.Point(383, 133);
+            this.iconButton1.Name = "iconButton1";
+            this.iconButton1.Size = new System.Drawing.Size(205, 23);
+            this.iconButton1.TabIndex = 31;
+            this.iconButton1.Text = "iconButton1";
+            this.iconButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.iconButton1.UseVisualStyleBackColor = true;
             // 
             // frmSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1370, 749);
-            this.Controls.Add(this.monthCalendar1);
             this.Controls.Add(this.panelTitleBar);
             this.Controls.Add(this.panelMenu);
             this.Controls.Add(this.panelDesktop);
@@ -568,6 +590,7 @@
             this.panelDesktop.ResumeLayout(false);
             this.panelDesktop.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdUsers)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -604,6 +627,7 @@
         private System.Windows.Forms.TextBox txtFullName;
         private System.Windows.Forms.Label lblCustmerName;
         private System.Windows.Forms.Label lblEmail;
-        private System.Windows.Forms.MonthCalendar monthCalendar1;
+        private FontAwesome.Sharp.IconButton iconButton1;
+        private FontAwesome.Sharp.IconPictureBox iconPictureBox1;
     }
 }
