@@ -19,11 +19,6 @@ namespace DDCManagementSystem
             InitializeComponent();
         }
 
-        private void panelDesktop_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void LoadTrack()
         {
             SqlConnection con = new SqlConnection(Connection.CONNECTION_STRING);
@@ -45,9 +40,6 @@ namespace DDCManagementSystem
             dataAdapter.Fill(ds);
             gvTrack.ReadOnly = true;
             gvTrack.DataSource = ds.Tables[0];
-
-
-
         }
 
         private void frmTracking_Load(object sender, EventArgs e)
@@ -64,27 +56,6 @@ namespace DDCManagementSystem
             txtPhone.Text = dtColletion["phone"].Value.ToString().Trim();
             txtAddress.Text = dtColletion["address"].Value.ToString().Trim();
             txtDate.Text = dtColletion["order_date"].Value.ToString().Trim();
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-
-        }
-
-        private void textBox4_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void iconButton2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtDate_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void btnCustomers_Click(object sender, EventArgs e)
@@ -122,14 +93,11 @@ namespace DDCManagementSystem
             this.Close();
         }
 
-        private void panel3_Paint(object sender, PaintEventArgs e)
+        private void btnLogout_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void labelDashboard_Click(object sender, EventArgs e)
-        {
-
+            this.Hide();
+            new frmLogin().ShowDialog();
+            this.Close();
         }
     }
 }

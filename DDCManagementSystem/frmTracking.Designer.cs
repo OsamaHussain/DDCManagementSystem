@@ -46,21 +46,21 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panelDesktop = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtName = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtPhone = new System.Windows.Forms.TextBox();
-            this.txtEmail = new System.Windows.Forms.TextBox();
-            this.txtAddress = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txtDate = new System.Windows.Forms.TextBox();
-            this.iconButton2 = new FontAwesome.Sharp.IconButton();
             this.label7 = new System.Windows.Forms.Label();
             this.txtOrderID = new System.Windows.Forms.TextBox();
-            this.lblCustmerName = new System.Windows.Forms.Label();
+            this.iconButton2 = new FontAwesome.Sharp.IconButton();
+            this.txtDate = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtAddress = new System.Windows.Forms.TextBox();
+            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.txtPhone = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtName = new System.Windows.Forms.TextBox();
             this.txtTrack = new System.Windows.Forms.TextBox();
+            this.lblCustmerName = new System.Windows.Forms.Label();
             this.panelTitleBar.SuspendLayout();
             this.panelTitleBar2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -99,7 +99,6 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1140, 60);
             this.panel3.TabIndex = 13;
-            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
             // labelDashboard
             // 
@@ -111,7 +110,6 @@
             this.labelDashboard.Size = new System.Drawing.Size(195, 49);
             this.labelDashboard.TabIndex = 0;
             this.labelDashboard.Text = "Tracking";
-            this.labelDashboard.Click += new System.EventHandler(this.labelDashboard_Click);
             // 
             // gvTrack
             // 
@@ -290,6 +288,7 @@
             this.btnLogout.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnLogout.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnLogout.UseVisualStyleBackColor = true;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
             // btnOrders
             // 
@@ -385,134 +384,6 @@
             this.panelDesktop.Name = "panelDesktop";
             this.panelDesktop.Size = new System.Drawing.Size(1370, 749);
             this.panelDesktop.TabIndex = 34;
-            this.panelDesktop.Paint += new System.Windows.Forms.PaintEventHandler(this.panelDesktop_Paint);
-            // 
-            // label2
-            // 
-            this.label2.AllowDrop = true;
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(871, 170);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(119, 26);
-            this.label2.TabIndex = 26;
-            this.label2.Text = "Client Name";
-            // 
-            // txtName
-            // 
-            this.txtName.AllowDrop = true;
-            this.txtName.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtName.Location = new System.Drawing.Point(876, 198);
-            this.txtName.Margin = new System.Windows.Forms.Padding(2);
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(446, 33);
-            this.txtName.TabIndex = 25;
-            this.txtName.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            // 
-            // label3
-            // 
-            this.label3.AllowDrop = true;
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(874, 238);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(122, 26);
-            this.label3.TabIndex = 27;
-            this.label3.Text = "Client Phone";
-            // 
-            // label4
-            // 
-            this.label4.AllowDrop = true;
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(871, 310);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(114, 26);
-            this.label4.TabIndex = 28;
-            this.label4.Text = "Client Email";
-            // 
-            // label5
-            // 
-            this.label5.AllowDrop = true;
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(874, 393);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(136, 26);
-            this.label5.TabIndex = 29;
-            this.label5.Text = "Client Address";
-            // 
-            // txtPhone
-            // 
-            this.txtPhone.AllowDrop = true;
-            this.txtPhone.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPhone.Location = new System.Drawing.Point(876, 266);
-            this.txtPhone.Margin = new System.Windows.Forms.Padding(2);
-            this.txtPhone.Name = "txtPhone";
-            this.txtPhone.Size = new System.Drawing.Size(446, 33);
-            this.txtPhone.TabIndex = 30;
-            // 
-            // txtEmail
-            // 
-            this.txtEmail.AllowDrop = true;
-            this.txtEmail.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEmail.Location = new System.Drawing.Point(876, 338);
-            this.txtEmail.Margin = new System.Windows.Forms.Padding(2);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(446, 33);
-            this.txtEmail.TabIndex = 31;
-            // 
-            // txtAddress
-            // 
-            this.txtAddress.AllowDrop = true;
-            this.txtAddress.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAddress.Location = new System.Drawing.Point(876, 421);
-            this.txtAddress.Margin = new System.Windows.Forms.Padding(2);
-            this.txtAddress.Name = "txtAddress";
-            this.txtAddress.Size = new System.Drawing.Size(446, 33);
-            this.txtAddress.TabIndex = 32;
-            this.txtAddress.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
-            // 
-            // label6
-            // 
-            this.label6.AllowDrop = true;
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(871, 468);
-            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(108, 26);
-            this.label6.TabIndex = 33;
-            this.label6.Text = "Order Date";
-            // 
-            // txtDate
-            // 
-            this.txtDate.AllowDrop = true;
-            this.txtDate.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDate.Location = new System.Drawing.Point(876, 496);
-            this.txtDate.Margin = new System.Windows.Forms.Padding(2);
-            this.txtDate.Name = "txtDate";
-            this.txtDate.Size = new System.Drawing.Size(446, 33);
-            this.txtDate.TabIndex = 34;
-            this.txtDate.TextChanged += new System.EventHandler(this.txtDate_TextChanged);
-            // 
-            // iconButton2
-            // 
-            this.iconButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.iconButton2.IconColor = System.Drawing.Color.Black;
-            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton2.Location = new System.Drawing.Point(879, 571);
-            this.iconButton2.Name = "iconButton2";
-            this.iconButton2.Size = new System.Drawing.Size(443, 75);
-            this.iconButton2.TabIndex = 35;
-            this.iconButton2.Text = "Print";
-            this.iconButton2.UseVisualStyleBackColor = true;
-            this.iconButton2.Click += new System.EventHandler(this.iconButton2_Click);
             // 
             // label7
             // 
@@ -536,17 +407,128 @@
             this.txtOrderID.Size = new System.Drawing.Size(446, 33);
             this.txtOrderID.TabIndex = 36;
             // 
-            // lblCustmerName
+            // iconButton2
             // 
-            this.lblCustmerName.AllowDrop = true;
-            this.lblCustmerName.AutoSize = true;
-            this.lblCustmerName.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCustmerName.Location = new System.Drawing.Point(274, 98);
-            this.lblCustmerName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblCustmerName.Name = "lblCustmerName";
-            this.lblCustmerName.Size = new System.Drawing.Size(132, 26);
-            this.lblCustmerName.TabIndex = 21;
-            this.lblCustmerName.Text = "Tracking Code";
+            this.iconButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.iconButton2.IconColor = System.Drawing.Color.Black;
+            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton2.Location = new System.Drawing.Point(879, 571);
+            this.iconButton2.Name = "iconButton2";
+            this.iconButton2.Size = new System.Drawing.Size(443, 75);
+            this.iconButton2.TabIndex = 35;
+            this.iconButton2.Text = "Print";
+            this.iconButton2.UseVisualStyleBackColor = true;
+            // 
+            // txtDate
+            // 
+            this.txtDate.AllowDrop = true;
+            this.txtDate.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDate.Location = new System.Drawing.Point(876, 496);
+            this.txtDate.Margin = new System.Windows.Forms.Padding(2);
+            this.txtDate.Name = "txtDate";
+            this.txtDate.Size = new System.Drawing.Size(446, 33);
+            this.txtDate.TabIndex = 34;
+            // 
+            // label6
+            // 
+            this.label6.AllowDrop = true;
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(871, 468);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(108, 26);
+            this.label6.TabIndex = 33;
+            this.label6.Text = "Order Date";
+            // 
+            // txtAddress
+            // 
+            this.txtAddress.AllowDrop = true;
+            this.txtAddress.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAddress.Location = new System.Drawing.Point(876, 421);
+            this.txtAddress.Margin = new System.Windows.Forms.Padding(2);
+            this.txtAddress.Name = "txtAddress";
+            this.txtAddress.Size = new System.Drawing.Size(446, 33);
+            this.txtAddress.TabIndex = 32;
+            // 
+            // txtEmail
+            // 
+            this.txtEmail.AllowDrop = true;
+            this.txtEmail.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEmail.Location = new System.Drawing.Point(876, 338);
+            this.txtEmail.Margin = new System.Windows.Forms.Padding(2);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(446, 33);
+            this.txtEmail.TabIndex = 31;
+            // 
+            // txtPhone
+            // 
+            this.txtPhone.AllowDrop = true;
+            this.txtPhone.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPhone.Location = new System.Drawing.Point(876, 266);
+            this.txtPhone.Margin = new System.Windows.Forms.Padding(2);
+            this.txtPhone.Name = "txtPhone";
+            this.txtPhone.Size = new System.Drawing.Size(446, 33);
+            this.txtPhone.TabIndex = 30;
+            // 
+            // label5
+            // 
+            this.label5.AllowDrop = true;
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(874, 393);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(136, 26);
+            this.label5.TabIndex = 29;
+            this.label5.Text = "Client Address";
+            // 
+            // label4
+            // 
+            this.label4.AllowDrop = true;
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(871, 310);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(114, 26);
+            this.label4.TabIndex = 28;
+            this.label4.Text = "Client Email";
+            // 
+            // label3
+            // 
+            this.label3.AllowDrop = true;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(874, 238);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(122, 26);
+            this.label3.TabIndex = 27;
+            this.label3.Text = "Client Phone";
+            // 
+            // label2
+            // 
+            this.label2.AllowDrop = true;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(871, 170);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(119, 26);
+            this.label2.TabIndex = 26;
+            this.label2.Text = "Client Name";
+            // 
+            // txtName
+            // 
+            this.txtName.AllowDrop = true;
+            this.txtName.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtName.Location = new System.Drawing.Point(876, 198);
+            this.txtName.Margin = new System.Windows.Forms.Padding(2);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(446, 33);
+            this.txtName.TabIndex = 25;
             // 
             // txtTrack
             // 
@@ -559,6 +541,18 @@
             this.txtTrack.Size = new System.Drawing.Size(582, 33);
             this.txtTrack.TabIndex = 24;
             this.txtTrack.TextChanged += new System.EventHandler(this.txtTrack_TextChanged);
+            // 
+            // lblCustmerName
+            // 
+            this.lblCustmerName.AllowDrop = true;
+            this.lblCustmerName.AutoSize = true;
+            this.lblCustmerName.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCustmerName.Location = new System.Drawing.Point(274, 98);
+            this.lblCustmerName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblCustmerName.Name = "lblCustmerName";
+            this.lblCustmerName.Size = new System.Drawing.Size(132, 26);
+            this.lblCustmerName.TabIndex = 21;
+            this.lblCustmerName.Text = "Tracking Code";
             // 
             // frmTracking
             // 

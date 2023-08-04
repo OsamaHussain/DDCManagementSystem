@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -9,6 +10,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace DDCManagementSystem
 {
@@ -18,6 +20,7 @@ namespace DDCManagementSystem
         public frmDashboard()
         {
             InitializeComponent();
+            LoadDashboardData();
             //this.Padding = new Padding(borderSize);
             //this.BackColor = Color.FromArgb(98, 102, 244);
         }
@@ -33,25 +36,10 @@ namespace DDCManagementSystem
         }
         */
 
-        private void panelMenu_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panelDesktop_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void frmDashboard_Load(object sender, EventArgs e)
         {
             //labelDashboard.Location = new Point((this.Width - labelDashboard.Width) / 2, (this.Height - labelDashboard.Height) / 2);
             this.WindowState = FormWindowState.Maximized;
-        }
-
-        private void panel4_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         private void btnLogout_Click(object sender, EventArgs e)
@@ -59,21 +47,6 @@ namespace DDCManagementSystem
             this.Hide();
             new frmLogin().ShowDialog();
             this.Close();
-        }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel4_Paint_1(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void btnOrders_Click(object sender, EventArgs e)
@@ -88,11 +61,6 @@ namespace DDCManagementSystem
             this.Hide();
             new frmDashboard().ShowDialog();
             this.Close();
-        }
-
-        private void btnVendor_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void btnCustomers_Click(object sender, EventArgs e)
@@ -116,11 +84,6 @@ namespace DDCManagementSystem
             this.Close();
         }
 
-        private void labelDashboard_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnSettings_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -133,6 +96,21 @@ namespace DDCManagementSystem
             this.Hide();
             new frmTracking().ShowDialog();
             this.Close();
+        }
+
+        private void LoadDashboardData()
+        {
+            var series = new Series("Income");
+            series.Points.DataBindXY(new[] { "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" }, new[] { 100, 290, 90, 150, 100, 200, 90, 150, 100, 200, 90, 150 });
+            chart1.Series.Add(series);
+            int dataPointIndex = 0;
+            series.Color = Color.FromArgb(63, 81, 181);
+            series["PixelPointWidth"] = "20";
+            chart1.ChartAreas[0].AxisX.MajorGrid.Enabled = false;
+            chart1.ChartAreas[0].AxisX.MinorGrid.Enabled = false;
+            chart1.ChartAreas[0].AxisY.MajorGrid.Enabled = false;
+            chart1.ChartAreas[0].AxisY.MinorGrid.Enabled = false;
+            chart1.ChartAreas[0].BackColor = Color.Transparent;
         }
     }
 }

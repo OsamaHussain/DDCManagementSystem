@@ -59,8 +59,6 @@
             this.txtFullName = new System.Windows.Forms.TextBox();
             this.lblCustmerName = new System.Windows.Forms.Label();
             this.lblEmail = new System.Windows.Forms.Label();
-            this.iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
-            this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.panel1.SuspendLayout();
             this.panelTitleBar.SuspendLayout();
             this.panelTitleBar2.SuspendLayout();
@@ -68,7 +66,6 @@
             this.panelMenu.SuspendLayout();
             this.panelDesktop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdUsers)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnDashboard
@@ -345,8 +342,6 @@
             // panelDesktop
             // 
             this.panelDesktop.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panelDesktop.Controls.Add(this.iconButton1);
-            this.panelDesktop.Controls.Add(this.iconPictureBox1);
             this.panelDesktop.Controls.Add(this.button1);
             this.panelDesktop.Controls.Add(this.btnUpdate);
             this.panelDesktop.Controls.Add(this.btnDelete);
@@ -542,32 +537,6 @@
             this.lblEmail.TabIndex = 25;
             this.lblEmail.Text = "Password";
             // 
-            // iconPictureBox1
-            // 
-            this.iconPictureBox1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.iconPictureBox1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.iconPictureBox1.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.iconPictureBox1.IconColor = System.Drawing.SystemColors.ControlText;
-            this.iconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconPictureBox1.Location = new System.Drawing.Point(926, 183);
-            this.iconPictureBox1.Name = "iconPictureBox1";
-            this.iconPictureBox1.Size = new System.Drawing.Size(32, 32);
-            this.iconPictureBox1.TabIndex = 30;
-            this.iconPictureBox1.TabStop = false;
-            // 
-            // iconButton1
-            // 
-            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.BoxOpen;
-            this.iconButton1.IconColor = System.Drawing.Color.Black;
-            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton1.Location = new System.Drawing.Point(383, 133);
-            this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Size = new System.Drawing.Size(205, 23);
-            this.iconButton1.TabIndex = 31;
-            this.iconButton1.Text = "iconButton1";
-            this.iconButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButton1.UseVisualStyleBackColor = true;
-            // 
             // frmSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -590,7 +559,6 @@
             this.panelDesktop.ResumeLayout(false);
             this.panelDesktop.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdUsers)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -627,7 +595,5 @@
         private System.Windows.Forms.TextBox txtFullName;
         private System.Windows.Forms.Label lblCustmerName;
         private System.Windows.Forms.Label lblEmail;
-        private FontAwesome.Sharp.IconButton iconButton1;
-        private FontAwesome.Sharp.IconPictureBox iconPictureBox1;
     }
 }

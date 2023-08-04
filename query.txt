@@ -1,0 +1,39 @@
+
+CREATE TABLE [dbo].[tblOrders](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[order_number] [nvarchar](max) NULL,
+	[customer_id] [int] NULL,
+	[unit_price] [float] NULL,
+	[quantity] [int] NULL,
+    [service_id] [int],
+	[order_date] [nvarchar](50) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+
+
+Create Table [Services]
+(
+id int primary key identity,
+[service_name] nvarchar(100),
+service_price float
+)
+
+insert into [Services] ([service_name],service_price)values ('Shalwar',1.5),('Kameez',2),('Pant',5),('Shirt',2.5)
+insert into [Services] ([service_name],service_price)values ('Undergarments',1.5),('3 Piece Suit',10.5),('2 Piece Suit',8.5),('Jacket',12),('Coat',11),('Socks',5),('Hoodie',19.5),('Sweater',7.5),('Shoes',5),('Towel',5.5),('Other Washables',10)
+
+select * from [Services]
+--truncate Table tblCustomer
+--truncate Table tblOrders
+
+select * from tblCustomer
+select * from tblOrders
+
+
+select o.order_number, sum(o.unit_price) from tblOrders o
+join tblCustomer c
+on o.customer_id = c.id
+group by o.unit_price

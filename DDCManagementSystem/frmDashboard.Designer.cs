@@ -30,7 +30,6 @@
         {
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDashboard));
             this.panelMenu = new System.Windows.Forms.Panel();
             this.btnTrack = new FontAwesome.Sharp.IconButton();
@@ -131,7 +130,6 @@
             this.panelMenu.Padding = new System.Windows.Forms.Padding(0, 0, 0, 15);
             this.panelMenu.Size = new System.Drawing.Size(230, 738);
             this.panelMenu.TabIndex = 6;
-            this.panelMenu.Paint += new System.Windows.Forms.PaintEventHandler(this.panelMenu_Paint);
             // 
             // btnTrack
             // 
@@ -381,7 +379,6 @@
             this.labelDashboard.Size = new System.Drawing.Size(187, 49);
             this.labelDashboard.TabIndex = 0;
             this.labelDashboard.Text = "Dashboard";
-            this.labelDashboard.Click += new System.EventHandler(this.labelDashboard_Click);
             // 
             // panelDesktop
             // 
@@ -394,7 +391,6 @@
             this.panelDesktop.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
             this.panelDesktop.Size = new System.Drawing.Size(1123, 123);
             this.panelDesktop.TabIndex = 8;
-            this.panelDesktop.Paint += new System.Windows.Forms.PaintEventHandler(this.panelDesktop_Paint);
             // 
             // tableLayoutPanel1
             // 
@@ -700,7 +696,6 @@
             this.panelOutPending.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
             this.panelOutPending.Size = new System.Drawing.Size(275, 123);
             this.panelOutPending.TabIndex = 0;
-            this.panelOutPending.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint_1);
             // 
             // panelInPending
             // 
@@ -785,11 +780,13 @@
             this.panel13.Location = new System.Drawing.Point(230, 183);
             this.panel13.Name = "panel13";
             this.panel13.Padding = new System.Windows.Forms.Padding(10);
-            this.panel13.Size = new System.Drawing.Size(1123, 386);
+            this.panel13.Size = new System.Drawing.Size(1123, 543);
             this.panel13.TabIndex = 9;
             // 
             // chart1
             // 
+            this.chart1.BackColor = System.Drawing.Color.Transparent;
+            this.chart1.BorderlineColor = System.Drawing.Color.Transparent;
             chartArea1.Name = "ChartArea1";
             this.chart1.ChartAreas.Add(chartArea1);
             this.chart1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -797,11 +794,7 @@
             this.chart1.Legends.Add(legend1);
             this.chart1.Location = new System.Drawing.Point(10, 10);
             this.chart1.Name = "chart1";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(1103, 366);
+            this.chart1.Size = new System.Drawing.Size(1103, 523);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
             // 
