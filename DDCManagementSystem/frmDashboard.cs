@@ -16,29 +16,15 @@ namespace DDCManagementSystem
 {
     public partial class frmDashboard : Form
     {
-        //private int borderSize = 2;
         public frmDashboard()
         {
             InitializeComponent();
             LoadDashboardData();
-            //this.Padding = new Padding(borderSize);
-            //this.BackColor = Color.FromArgb(98, 102, 244);
+            InitialDashboardValues();
         }
-
-        /*[DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
-        private extern static void ReleaseCapture();
-        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
-        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
-        private void panelTitleBar_MouseDown(object sender, MouseEventArgs e)
-        {
-            ReleaseCapture();
-            SendMessage(this.Handle, 0x112, 0xf012, 0);
-        }
-        */
 
         private void frmDashboard_Load(object sender, EventArgs e)
         {
-            //labelDashboard.Location = new Point((this.Width - labelDashboard.Width) / 2, (this.Height - labelDashboard.Height) / 2);
             this.WindowState = FormWindowState.Maximized;
         }
 
@@ -111,6 +97,62 @@ namespace DDCManagementSystem
             chart1.ChartAreas[0].AxisY.MajorGrid.Enabled = false;
             chart1.ChartAreas[0].AxisY.MinorGrid.Enabled = false;
             chart1.ChartAreas[0].BackColor = Color.Transparent;
+        }
+
+        private void InitialDashboardValues()
+        {
+            SqlConnection con = new SqlConnection(Connection.CONNECTION_STRING);
+            var dataAdapter = new SqlDataAdapter("select count(distinct order_number) from tblOrders;", con);
+            var ds = new DataSet();
+            dataAdapter.Fill(ds);
+            if (ds == null || ds.Tables.Count == 0 || ds.Tables[0].Rows.Count == 0 || ds.Tables[0].Rows[0][0].ToString() == "")
+            {
+                label2.Text = "0";
+            }
+            else
+            {
+                label2.Text = ds.Tables[0].Rows[0][0].ToString();
+            }
+
+            var dataAdapter2 = new SqlDataAdapter("select sum(unit_price* quantity) as 'Total Income' from tblOrders;", con);
+            var ds2 = new DataSet();
+            dataAdapter2.Fill(ds2);
+            if (ds2 == null || ds2.Tables.Count == 0 || ds2.Tables[0].Rows.Count == 0 || ds2.Tables[0].Rows[0][0].ToString() == "")
+            {
+                label3.Text = "0";
+            }
+            else
+            {
+                label3.Text = ds2.Tables[0].Rows[0][0].ToString();
+            }
+
+            var dataAdapter3 = new SqlDataAdapter("select sum(unit_price * quantity) from tblOrders where order_date = FORMAT (getdate(), 'dd/MM/yyyy');", con);
+            var ds3 = new DataSet();
+            dataAdapter3.Fill(ds3);
+            if (ds3 == null || ds3.Tables.Count == 0 || ds3.Tables[0].Rows.Count == 0 || ds3.Tables[0].Rows[0][0].ToString() == "")
+            {
+                label8.Text = "0";
+            }else
+            {
+                label8.Text = ds3.Tables[0].Rows[0][0].ToString();
+            }
+
+            var dataAdapter4 = new SqlDataAdapter("select count(id) from tblCustomer;", con);
+            var ds4 = new DataSet();
+            dataAdapter4.Fill(ds4);
+            if (ds4 == null || ds4.Tables.Count == 0 || ds4.Tables[0].Rows.Count == 0 || ds4.Tables[0].Rows[0][0].ToString() == "")
+            {
+                label6.Text = "0";
+            }
+            else
+            {
+                label6.Text = ds4.Tables[0].Rows[0][0].ToString();
+            }
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -479,9 +479,9 @@
             this.label7.ForeColor = System.Drawing.Color.White;
             this.label7.Location = new System.Drawing.Point(5, 57);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(127, 21);
+            this.label7.Size = new System.Drawing.Size(118, 21);
             this.label7.TabIndex = 2;
-            this.label7.Text = "Total Revenue";
+            this.label7.Text = "Today Income";
             // 
             // label8
             // 
@@ -491,15 +491,15 @@
             this.label8.ForeColor = System.Drawing.Color.White;
             this.label8.Location = new System.Drawing.Point(5, 5);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(139, 38);
+            this.label8.Size = new System.Drawing.Size(63, 38);
             this.label8.TabIndex = 1;
-            this.label8.Text = "87.5%";
+            this.label8.Text = "25";
             // 
             // iconPictureBox3
             // 
             this.iconPictureBox3.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.iconPictureBox3.BackColor = System.Drawing.Color.Transparent;
-            this.iconPictureBox3.IconChar = FontAwesome.Sharp.IconChar.ChartPie;
+            this.iconPictureBox3.IconChar = FontAwesome.Sharp.IconChar.DollarSign;
             this.iconPictureBox3.IconColor = System.Drawing.Color.White;
             this.iconPictureBox3.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconPictureBox3.IconSize = 53;
@@ -567,9 +567,9 @@
             this.label5.ForeColor = System.Drawing.Color.White;
             this.label5.Location = new System.Drawing.Point(5, 57);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(91, 21);
+            this.label5.Size = new System.Drawing.Size(145, 21);
             this.label5.TabIndex = 2;
-            this.label5.Text = "New Users";
+            this.label5.Text = "Total Customers";
             // 
             // label6
             // 
@@ -579,9 +579,9 @@
             this.label6.ForeColor = System.Drawing.Color.White;
             this.label6.Location = new System.Drawing.Point(5, 5);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(109, 38);
+            this.label6.Size = new System.Drawing.Size(86, 38);
             this.label6.TabIndex = 1;
-            this.label6.Text = "2550";
+            this.label6.Text = "250";
             // 
             // iconPictureBox4
             // 
@@ -655,9 +655,10 @@
             this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Location = new System.Drawing.Point(5, 57);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(136, 21);
+            this.label4.Size = new System.Drawing.Size(118, 21);
             this.label4.TabIndex = 2;
-            this.label4.Text = "Total Expenses";
+            this.label4.Text = "Total Income";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label3
             // 
